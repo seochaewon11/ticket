@@ -192,23 +192,34 @@ export const DashboardValue = styled.p<{ $highlight?: boolean }>`
   color: ${({ theme, $highlight }) => ($highlight ? theme.colors.primaryStrong : theme.colors.text)};
 `
 
-export const MemoryGridWrap = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+export const RecentScrollWrap = styled.div`
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `
 
-export const MemoryCard = styled.div`
-  position: relative;
+export const RecentEmptyState = styled.p`
+  padding: 24px 0;
+  font-size: 13px;
+  color: ${({ theme }) => theme.colors.textSub};
 `
 
-export const MemoryPoster = styled.div`
-  position: relative;
-  width: 100%;
-  height: 150px;
+export const RecentItem = styled.div`
+  flex-shrink: 0;
+  width: 140px;
+`
+
+export const RecentPoster = styled.div`
+  width: 140px;
+  height: 178px;
   border-radius: ${({ theme }) => theme.radius.md};
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.disabledBg};
+  box-shadow: ${({ theme }) => theme.shadow.card};
   margin-bottom: 8px;
 
   img {
@@ -218,27 +229,15 @@ export const MemoryPoster = styled.div`
   }
 `
 
-export const MemoryDateBadge = styled.span`
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  padding: 4px 9px;
-  border-radius: ${({ theme }) => theme.radius.pill};
-  background-color: rgba(20, 15, 30, 0.6);
-  color: ${({ theme }) => theme.colors.white};
-  font-size: 11px;
-  font-weight: 700;
-`
-
-export const MemoryTitle = styled.p`
-  font-size: 13.5px;
+export const RecentTitle = styled.p`
+  font-size: 14px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: 2px;
 `
 
-export const MemoryVenue = styled.p`
-  font-size: 11.5px;
+export const RecentVenue = styled.p`
+  font-size: 12px;
   color: ${({ theme }) => theme.colors.textSub};
 `
 

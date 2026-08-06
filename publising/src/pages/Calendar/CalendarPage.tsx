@@ -10,6 +10,7 @@ import { CalendarGrid } from './components/CalendarGrid'
 import { AlertScroll } from './components/AlertScroll'
 import { UpcomingList } from './components/UpcomingList'
 import { WishedList } from './components/WishedList'
+import { WatchedList } from './components/WatchedList'
 import {
   AlertSection,
   CalendarCard,
@@ -32,6 +33,9 @@ export function CalendarPage() {
   const { performances, markAsWatched, recordView, getCalendarEventDates, getTicketOpenAlerts, getUpcomingPerformances } =
     useNoliData()
   const wishedPerformances = performances.filter((p) => p.status === 'wish')
+  const watchedPerformances = performances
+    .filter((p) => p.status === 'watched')
+    .sort((a, b) => (b.watchedAt || '').localeCompare(a.watchedAt || ''))
 
   // 관람 완료로 표시하면 "최근 본 공연"(play.html)에도 함께 기록되게 한다
   function handleMarkWatched(id: string) {
@@ -99,6 +103,13 @@ export function CalendarPage() {
             <h3>찜한 공연</h3>
           </SectionHeader>
           <WishedList performances={wishedPerformances} onMarkWatched={handleMarkWatched} />
+        </WishedSection>
+
+        <WishedSection>
+          <SectionHeader>
+            <h3>관람 완료 공연</h3>
+          </SectionHeader>
+          <WatchedList performances={watchedPerformances} />
         </WishedSection>
 
         <UpcomingSection>

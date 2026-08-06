@@ -8,7 +8,7 @@ import { Icon, type IconName } from '../../components/common/icon'
 import { useNoliData } from '../../hooks/useNoliData'
 import { ProfileCard } from './components/ProfileCard'
 import { DashboardCards } from './components/DashboardCards'
-import { MemoryGrid } from './components/MemoryGrid'
+import { RecentScroll } from './components/RecentScroll'
 import {
   FabTicket,
   LogoutWrap,
@@ -17,6 +17,7 @@ import {
   MenuRow,
   MoreLink,
   MyPageWrap,
+  RecentEmptyState,
   SectionBlock,
   SectionTitleRow,
 } from './styles'
@@ -30,7 +31,8 @@ const MENU_ITEMS: { icon: IconName; label: string; path?: string }[] = [
 
 export function MyPage() {
   const navigate = useNavigate()
-  const { user, getTasteDashboard, getMemoryPerformances } = useNoliData()
+  const { user, getTasteDashboard, getRecentlyViewed } = useNoliData()
+  const recentlyViewed = getRecentlyViewed()
 
   function handleLogout() {
     navigate('/login')
@@ -50,7 +52,7 @@ export function MyPage() {
 
         <SectionBlock>
           <SectionTitleRow>
-            <h3>나의 공연 기억</h3>
+            <h3>최근 본 공연</h3>
             <MoreLink
               href="#"
               onClick={(e) => {
@@ -61,7 +63,11 @@ export function MyPage() {
               더보기 &gt;
             </MoreLink>
           </SectionTitleRow>
-          <MemoryGrid memories={getMemoryPerformances()} />
+          {recentlyViewed.length > 0 ? (
+            <RecentScroll items={recentlyViewed} />
+          ) : (
+            <RecentEmptyState>아직 본 공연이 없어요. 공연 상세 페이지를 둘러보면 여기에 기록돼요.</RecentEmptyState>
+          )}
         </SectionBlock>
 
         <MenuList>

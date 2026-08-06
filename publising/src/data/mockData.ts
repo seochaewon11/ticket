@@ -3,7 +3,6 @@ import type {
   AppData,
   CalendarEventDate,
   GenreDistributionItem,
-  MemoryPerformance,
   Playlist,
   TasteDashboard,
   TicketOpenAlert,
@@ -145,23 +144,6 @@ export const TASTE_DASHBOARD: TasteDashboard = {
   topGenre: '뮤지컬',
   curationMatchRate: 98,
 }
-
-export const MEMORY_PERFORMANCES: MemoryPerformance[] = [
-  {
-    id: 'memory_001',
-    title: '오페라의 유령',
-    venue: '블루스퀘어 신한카드홀',
-    viewedDateLabel: '23.10.15',
-    posterUrl: '/img/mypage001.png',
-  },
-  {
-    id: 'memory_002',
-    title: '레베카',
-    venue: '충무아트센터 대극장',
-    viewedDateLabel: '23.09.28',
-    posterUrl: '/img/mypage002.png',
-  },
-]
 
 // localStorage(noli_app_data_v2)에 저장/복원되는 초기 상태
 export const DEFAULT_DATA: AppData = {

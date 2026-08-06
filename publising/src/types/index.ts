@@ -62,6 +62,7 @@ export interface Performance {
   venue: string
   liked: boolean
   status: PerformanceStatus
+  watchedAt?: string | null
   synopsis?: string
   isRunning?: boolean
   tagline?: string
@@ -153,14 +154,6 @@ export interface ArtistRankingItem {
 export interface TasteDashboard {
   topGenre: string
   curationMatchRate: number
-}
-
-export interface MemoryPerformance {
-  id: string
-  title: string
-  venue: string
-  viewedDateLabel: string
-  posterUrl: string
 }
 
 export interface Artist {

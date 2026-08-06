@@ -6,7 +6,6 @@ import type {
   ArtistRankingItem,
   CalendarEventDate,
   GenreDistributionItem,
-  MemoryPerformance,
   Performance,
   Playlist,
   RecentlyViewed,
@@ -21,7 +20,6 @@ import {
   CALENDAR_EVENT_DATES,
   DEFAULT_DATA,
   GENRE_DISTRIBUTION,
-  MEMORY_PERFORMANCES,
   TASTE_DASHBOARD,
   TICKET_OPEN_ALERTS,
   TOP_ARTISTS_RANKING,
@@ -129,7 +127,6 @@ export interface NoliDataValue {
   getGenreDistribution: () => GenreDistributionItem[]
   getTopArtistsRanking: () => ArtistRankingItem[]
   getTasteDashboard: () => TasteDashboard
-  getMemoryPerformances: () => MemoryPerformance[]
 
   // ---- 액션 ----
   toggleLike: (id: string) => void
@@ -200,7 +197,6 @@ export function NoliDataProvider({ children }: { children: ReactNode }) {
       getGenreDistribution: () => GENRE_DISTRIBUTION,
       getTopArtistsRanking: () => TOP_ARTISTS_RANKING,
       getTasteDashboard: () => TASTE_DASHBOARD,
-      getMemoryPerformances: () => MEMORY_PERFORMANCES,
 
       toggleLike: (id) => {
         setData((prev) => ({
@@ -217,7 +213,9 @@ export function NoliDataProvider({ children }: { children: ReactNode }) {
       markAsWatched: (id) => {
         setData((prev) => ({
           ...prev,
-          performances: prev.performances.map((p) => (p.id === id ? { ...p, status: 'watched' } : p)),
+          performances: prev.performances.map((p) =>
+            p.id === id ? { ...p, status: 'watched', watchedAt: new Date().toISOString() } : p,
+          ),
         }))
       },
       updatePreference: (favoriteGenres, favoriteMoods) => {
