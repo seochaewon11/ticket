@@ -1,6 +1,6 @@
 // common.css의 .bottom-nav / .nav-item 이식.
 // 원본은 화면마다 active 탭이 하드코딩돼 있었지만, React 버전은 현재 라우트로 자동 판별한다.
-// (작업계획.md 2-6: 홈→/home, 탐색→/add, 캘린더→/calendar, 분석→/analysis, 프로필→/mypage)
+// (작업계획.md 2-6: 홈→/home, 추천→/add, 캘린더→/calendar, 분석→/analysis, 프로필→/mypage)
 import styled, { css } from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
 import { Icon, type IconName } from '../common/icon'
@@ -13,7 +13,7 @@ interface NavItemDef {
 
 const NAV_ITEMS: NavItemDef[] = [
   { label: '홈', icon: 'home', path: '/home' },
-  { label: '탐색', icon: 'search', path: '/add' },
+  { label: '추천', icon: 'search', path: '/add' },
   { label: '캘린더', icon: 'calendar', path: '/calendar' },
   { label: '분석', icon: 'analysisChart', path: '/analysis' },
   { label: '마이페이지', icon: 'profile', path: '/mypage' },

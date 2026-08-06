@@ -12,7 +12,6 @@ const GENRE_EMOJI: Record<string, string> = {
   밴드: '🎸',
   댄스: '💃',
   클래식: '🎻',
-  전시: '🎨',
 }
 
 const GENRE_GRADIENT: Record<string, string> = {
@@ -21,7 +20,6 @@ const GENRE_GRADIENT: Record<string, string> = {
   댄스: 'linear-gradient(160deg, #33204A 0%, #8A4E86 50%, #F0A6B8 100%)',
   클래식: 'linear-gradient(160deg, #221C33 0%, #4F3E7A 50%, #C9B8FB 100%)',
   밴드: 'linear-gradient(160deg, #1E1E2B 0%, #4A3F73 50%, #8B8BFA 100%)',
-  전시: 'linear-gradient(160deg, #2B1E2E 0%, #7A4B63 50%, #F6C9C0 100%)',
 }
 const DEFAULT_GRADIENT = 'linear-gradient(160deg, #2A2140 0%, #7C5CFC 60%, #F7F0EC 100%)'
 

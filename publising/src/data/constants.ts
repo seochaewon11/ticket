@@ -7,7 +7,6 @@ export const GENRE_OPTIONS: GenreOption[] = [
   { key: '밴드', icon: '💿', color: 'tan' },
   { key: '댄스', icon: '🕺', color: 'purple' },
   { key: '클래식', icon: '🎵', color: 'tan' },
-  { key: '전시', icon: '🎨', color: 'pink' },
 ]
 
 export const MOOD_OPTIONS: MoodKey[] = [
@@ -43,7 +42,6 @@ export const GENRE_TAG_MAP: Record<string, string> = {
   밴드: '#밴드홀릭',
   댄스: '#댄스러버',
   클래식: '#클래식애호가',
-  전시: '#전시덕후',
 }
 
 export const DEFAULT_TASTE_TAGS = ['#감성적인', '#뮤지컬덕후', '#라이브공연']

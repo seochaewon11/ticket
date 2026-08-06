@@ -1,6 +1,6 @@
 // org/data.js의 데이터 구조를 그대로 이식한 타입 정의
 
-export type GenreKey = '콘서트' | '뮤지컬' | '밴드' | '댄스' | '클래식' | '전시'
+export type GenreKey = '콘서트' | '뮤지컬' | '밴드' | '댄스' | '클래식'
 
 export interface GenreOption {
   key: GenreKey

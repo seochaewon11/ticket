@@ -152,7 +152,7 @@ export const DEFAULT_DATA: AppData = {
     avatarUrl: '/img/soyeon.png',
     level: 12,
     titles: ['공연 애호가', '티켓 마스터'],
-    favoriteGenreIcons: ['뮤지컬', '콘서트', '전시'],
+    favoriteGenreIcons: ['뮤지컬', '콘서트', '클래식'],
     favoriteGenreExtraCount: 4,
   },
 
