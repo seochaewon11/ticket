@@ -5,6 +5,7 @@ import { StepProgress } from '../../components/layout/StepProgress'
 import { Button } from '../../components/common/Button'
 import { Icon } from '../../components/common/icon'
 import { useNoliData } from '../../hooks/useNoliData'
+import { RecommendedPosters } from './components/RecommendedPosters'
 import {
   CompleteContent,
   CompleteCta,
@@ -45,8 +46,9 @@ const PARTICLES = [
 
 export function CompletePage() {
   const navigate = useNavigate()
-  const { user, generateTasteTags } = useNoliData()
+  const { user, generateTasteTags, getRecommendedPerformances } = useNoliData()
   const tasteTags = generateTasteTags()
+  const topPicks = getRecommendedPerformances().slice(0, 3)
 
   function goToCalendar() {
     navigate('/calendar')
@@ -80,6 +82,7 @@ export function CompletePage() {
           <TasteCard>
             <TasteLabel>TASTE ANALYSIS</TasteLabel>
             <TasteTitle>{user.name}님을 위한 맞춤 공연을 준비했어요</TasteTitle>
+            <RecommendedPosters performances={topPicks} />
             <TasteTags>
               {tasteTags.map((tag) => (
                 <TasteTag key={tag}>{tag}</TasteTag>

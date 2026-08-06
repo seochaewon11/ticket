@@ -98,20 +98,63 @@ export const TasteTitle = styled.h2`
   margin-bottom: 18px;
 `
 
+export const TastePosterRow = styled.div`
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 18px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`
+
+export const TastePosterItem = styled.div`
+  flex-shrink: 0;
+  width: 96px;
+`
+
+export const TastePoster = styled.div`
+  width: 96px;
+  height: 128px;
+  border-radius: ${({ theme }) => theme.radius.md};
+  overflow: hidden;
+  box-shadow: ${({ theme }) => theme.shadow.card};
+  margin-bottom: 8px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`
+
+export const TastePosterTitle = styled.p`
+  font-size: 12.5px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`
+
 export const TasteTags = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 `
 
 export const TasteTag = styled.span`
-  padding: 11px 8px;
+  padding: 7px 12px;
   border-radius: ${({ theme }) => theme.radius.pill};
   background-color: ${({ theme }) => theme.colors.primarySoft};
   color: ${({ theme }) => theme.colors.primaryStrong};
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 700;
-  text-align: center;
 `
 
 export const CompleteNote = styled.p`
