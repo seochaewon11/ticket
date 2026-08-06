@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 나의 공연 보관함</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="play.css" />
+</head>
+
+<body>
+  <div class="app play-page">
+
+    <!-- 상단 헤더 -->
+    <header class="play-header">
+      <button class="hamburger-btn" aria-label="메뉴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+        </svg>
+      </button>
+      <img class="logo-badge" src="img/logo.png" alt="NOLI" />
+      <button class="header-icon-btn" aria-label="알림">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.5 6 1.5 6h-15S6 13.5 6 9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M10 19a2 2 0 0 0 4 0" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- 타이틀 영역 -->
+    <section class="play-title">
+      <h2>나의 공연 보관함</h2>
+      <p>소중한 추억과 보고 싶은 무대들을 모았어요 ✨</p>
+    </section>
+
+    <!-- 플레이리스트 카드 리스트: play.js에서 동적 렌더링 -->
+    <section class="playlist-list" id="playlistList"></section>
+
+    <!-- 최근 본 공연 추천 -->
+    <section class="recent-section">
+      <div class="section-header">
+        <h3>최근 본 공연 추천 🎨</h3>
+        <a href="#" class="more-link">모두 보기</a>
+      </div>
+      <div class="recent-scroll" id="recentScroll"></div>
+      <button type="button" class="fab-add" id="fabAdd" aria-label="새 플레이리스트 만들기"></button>
+    </section>
+
+    <!-- 하단 탭바 -->
+    <nav class="bottom-nav play-nav" aria-label="주요 메뉴">
+      <button class="nav-item active" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span class="nav-label">홈</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="M20 20l-4.5-4.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">탐색</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="4" y="5" width="16" height="15" rx="2" />
+          <path d="M4 9.5h16M8 3v3.5M16 3v3.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">캘린더</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 19V10M12 19V5M19 19v-6" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">분석</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="3.4" />
+          <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+        </svg>
+        <span class="nav-label">프로필</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="play.js"></script>
+</body>
+
+</html>

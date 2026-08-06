@@ -1,0 +1,173 @@
+/* ============================================
+   NOLI - add.css (취향설정 화면)
+   ============================================ */
+
+.add-page {
+  padding-bottom: 148px;
+  /* 하단 고정 CTA 버튼 + 탭바 높이만큼 여유 */
+}
+
+/* ---------- 상단바 ---------- */
+.add-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 4px;
+}
+
+/* ---------- 진행 표시 ---------- */
+.step-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px 0;
+}
+
+.step-meta .step-label {
+  font-size: 13px;
+  color: var(--color-text-sub);
+}
+
+.step-meta .artist-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+}
+
+/* ---------- 타이틀 ---------- */
+.add-title {
+  padding: 18px 20px 0;
+}
+
+.add-title h2 {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.add-title p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 장르 선택 그리드 ---------- */
+.genre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 20px 20px 0;
+}
+
+.genre-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 8px;
+  border-radius: var(--radius-md);
+  border: 1.6px solid transparent;
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.genre-card:active {
+  transform: scale(0.97);
+}
+
+.genre-card.is-selected {
+  border-color: var(--color-primary-strong);
+  background-color: var(--color-primary-soft);
+}
+
+.genre-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+.genre-icon.tone-purple {
+  background-color: var(--color-primary-soft);
+}
+
+.genre-icon.tone-pink {
+  background-color: #FBE3E7;
+}
+
+.genre-icon.tone-tan {
+  background-color: #ECE4DE;
+}
+
+.genre-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 분위기 선택 ---------- */
+.mood-section {
+  padding: 30px 20px 0;
+}
+
+.mood-section h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.mood-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mood-tag {
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  background-color: #F1E4DE;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.mood-tag:active {
+  transform: scale(0.96);
+}
+
+.mood-tag.is-selected {
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+}
+
+/* ---------- 하단 고정 CTA ---------- */
+.add-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  background-color: var(--color-accent);
+}
+
+.add-cta .action-buttons {
+  padding: 14px 20px 10px;
+}
+
+.add-cta .btn {
+  gap: 8px;
+}
+
+.add-nav {
+  position: static;
+  transform: none;
+  box-shadow: none;
+  padding-top: 6px;
+}

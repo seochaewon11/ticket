@@ -1,0 +1,374 @@
+/* ============================================
+   NOLI - mypage.css (마이페이지 화면)
+   ============================================ */
+
+.mypage-page {
+  padding-bottom: 100px; /* 하단 고정 탭바 높이만큼 여유 */
+}
+
+/* ---------- 상단 헤더 ---------- */
+.mypage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 8px;
+}
+
+.hamburger-btn,
+.header-icon-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.hamburger-btn svg,
+.header-icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.logo-badge {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ---------- 프로필 카드 ---------- */
+.profile-card {
+  position: relative;
+  margin: 14px 20px 0;
+  padding: 20px 18px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.profile-edit-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-mute);
+}
+
+.profile-edit-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.profile-top-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.profile-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #C9B8FB, #F3B9C6);
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.level-badge {
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 9px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  font-size: 10.5px;
+  font-weight: 800;
+  border: 2px solid var(--color-surface);
+  white-space: nowrap;
+}
+
+.profile-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.profile-titles {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.title-badge {
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.profile-bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.genre-icon-stack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.genre-icon-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.genre-icon-circle.extra-count {
+  background-color: var(--color-disabled-bg);
+  color: var(--color-text-mute);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ---------- 취향 대시보드 ---------- */
+.section-block {
+  padding: 30px 20px 0;
+}
+
+.section-block h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 14px;
+}
+
+.section-title-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-title-row h3 {
+  margin-bottom: 0;
+}
+
+.more-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.dashboard-card {
+  padding: 20px 12px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.dashboard-card.is-highlight {
+  background-color: var(--color-primary-soft);
+  box-shadow: none;
+}
+
+.dashboard-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  margin: 0 auto 12px;
+}
+
+.dashboard-card.is-highlight .dashboard-icon {
+  background-color: var(--color-white);
+  color: var(--color-primary-strong);
+}
+
+.dashboard-label {
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+  margin-bottom: 4px;
+}
+
+.dashboard-value {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.dashboard-card.is-highlight .dashboard-value {
+  color: var(--color-primary-strong);
+}
+
+/* ---------- 나의 공연 기억 ---------- */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.memory-card {
+  position: relative;
+}
+
+.memory-poster {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-disabled-bg);
+  margin-bottom: 8px;
+}
+
+.memory-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.memory-date-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(20, 15, 30, 0.6);
+  color: var(--color-white);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.memory-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.memory-venue {
+  font-size: 11.5px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 메뉴 리스트 ---------- */
+.menu-list {
+  margin: 30px 20px 0;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.menu-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-row:last-child {
+  border-bottom: none;
+}
+
+.menu-row .menu-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-sub);
+  flex-shrink: 0;
+}
+
+.menu-row span.menu-label {
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.menu-row .chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-mute);
+}
+
+/* ---------- 로그아웃 ---------- */
+.logout-link {
+  display: block;
+  text-align: center;
+  margin: 22px auto 0;
+  font-size: 13.5px;
+  color: var(--color-text-mute);
+  font-weight: 600;
+}
+
+/* ---------- 플로팅 티켓 버튼 ---------- */
+.fab-ticket {
+  position: fixed;
+  right: calc(50% - (var(--app-max-width) / 2) + 20px);
+  bottom: 78px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-float);
+  z-index: 11;
+}
+
+.fab-ticket svg {
+  width: 21px;
+  height: 21px;
+}
+
+@media (max-width: 480px) {
+  .fab-ticket {
+    right: 20px;
+  }
+}

@@ -1,0 +1,182 @@
+/* ============================================
+   NOLI - artist.css (관심 아티스트 선택 화면)
+   ============================================ */
+
+.artist-page {
+  padding-bottom: 110px; /* 하단 고정 CTA 버튼 높이만큼 여유 */
+}
+
+/* ---------- 상단바 ---------- */
+.artist-topbar {
+  padding: 18px 20px 0;
+}
+
+.artist-topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* ---------- 진행 표시 ---------- */
+.step-label {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 타이틀 ---------- */
+.artist-title {
+  padding: 22px 20px 0;
+}
+
+.artist-title h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.artist-title p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.5;
+}
+
+/* ---------- 검색바 ---------- */
+.artist-search {
+  padding: 20px 20px 0;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent-soft);
+}
+
+.search-input-wrap svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-mute);
+  flex-shrink: 0;
+}
+
+.search-input-wrap input {
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+  width: 100%;
+}
+
+.search-input-wrap input::placeholder {
+  color: var(--color-text-mute);
+}
+
+/* ---------- 아티스트 그리드 ---------- */
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px 12px;
+  padding: 26px 20px 0;
+}
+
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: none;
+}
+
+.artist-photo-wrap {
+  position: relative;
+  width: 78px;
+  height: 78px;
+}
+
+.artist-photo {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid transparent;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-white);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.artist-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.artist-card:active .artist-photo {
+  transform: scale(0.95);
+}
+
+.artist-card.is-selected .artist-photo {
+  border-color: var(--color-primary-strong);
+}
+
+.check-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--color-primary-strong);
+  border: 2px solid var(--color-surface);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--color-white);
+}
+
+.artist-card.is-selected .check-badge {
+  display: flex;
+}
+
+.artist-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.artist-empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px 0;
+  color: var(--color-text-mute);
+  font-size: 14px;
+}
+
+/* ---------- 하단 고정 CTA ---------- */
+.artist-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  padding: 14px 20px calc(14px + env(safe-area-inset-bottom, 0px));
+  background-color: var(--color-accent);
+}

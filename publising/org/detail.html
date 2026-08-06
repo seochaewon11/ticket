@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 공연 상세</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="detail.css" />
+</head>
+
+<body>
+  <div class="app detail-page">
+
+    <!-- 포스터 히어로 영역 -->
+    <div class="poster-hero">
+      <img class="hero-img" id="posterImg" alt="공연 포스터" />
+
+      <!-- 상단 내비게이션 -->
+      <header class="hero-topbar">
+        <button class="icon-btn" id="backBtn" aria-label="뒤로가기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="topbar-right">
+          <button class="icon-btn" aria-label="공유">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="18" cy="5" r="2.6" />
+              <circle cx="6" cy="12" r="2.6" />
+              <circle cx="18" cy="19" r="2.6" />
+              <path d="M8.3 10.7l7.4-4.2M8.3 13.3l7.4 4.2" />
+            </svg>
+          </button>
+          <button class="icon-btn" aria-label="알림">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.5 6 1.5 6h-15S6 13.5 6 9z" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M10 19a2 2 0 0 0 4 0" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- "현재 상영 중" 배지 -->
+      <div class="status-badge-wrap">
+        <span class="status-badge" id="statusBadge">현재 상영 중</span>
+      </div>
+
+      <!-- 하단 타이틀 영역 -->
+      <div class="hero-bottom">
+        <span class="match-badge">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 20.5s-7.5-4.6-10-9.1C.4 8.2 2 4.8 5.4 4.1c2-.4 3.9.5 5 2.1 1.1-1.6 3-2.5 5-2.1 3.4.7 5 4.1 3.4 7.3-2.5 4.5-10 9.1-10 9.1z" />
+          </svg>
+          <span id="matchBadgeText">내 취향 일치 92%</span>
+        </span>
+        <h1 class="perf-title" id="perfTitle"></h1>
+        <p class="perf-tagline" id="perfTagline"></p>
+        <div class="tag-chips" id="tagChips"></div>
+      </div>
+    </div>
+
+    <main class="detail-content">
+
+      <!-- 추천 이유 툴팁 박스 -->
+      <section class="reason-card card">
+        <div class="reason-header">
+          <span class="sparkle">✨</span>
+          <h3>왜 추천됐는지 궁금하시죠?</h3>
+        </div>
+        <p class="reason-summary" id="reasonSummary"></p>
+        <div class="reason-stats">
+          <div class="reason-stat-item">
+            <span class="stat-icon">🎭</span>
+            <div>
+              <p class="stat-label">장르 선호도</p>
+              <p class="stat-value" id="genrePrefValue"></p>
+            </div>
+          </div>
+          <div class="reason-stat-item">
+            <span class="stat-icon">📈</span>
+            <div>
+              <p class="stat-label">인기 급상승</p>
+              <p class="stat-value" id="trendingValue"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 공연 상세 정보 -->
+      <section class="info-section">
+        <div class="section-header">
+          <h3>공연 상세 정보</h3>
+          <a href="#" class="more-link">더보기</a>
+        </div>
+        <div class="info-card card">
+          <div class="info-row">
+            <span class="info-icon">📅</span>
+            <span class="info-label">기간</span>
+            <span class="info-value" id="periodValue"></span>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">⏱️</span>
+            <span class="info-label">러닝타임</span>
+            <span class="info-value" id="runtimeValue"></span>
+          </div>
+          <div class="info-row">
+            <span class="info-icon">🎟️</span>
+            <span class="info-label">티켓 가격</span>
+            <span class="info-value" id="priceValue"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 시놉시스 -->
+      <section class="synopsis-section">
+        <div class="section-header">
+          <h3>시놉시스</h3>
+        </div>
+        <div class="synopsis-card">
+          <p class="synopsis-text" id="synopsisText"></p>
+          <button class="synopsis-toggle" id="synopsisToggle" type="button">
+            더 보기
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
+              <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 출연진 -->
+      <section class="cast-section">
+        <div class="section-header">
+          <h3>출연진</h3>
+          <a href="#" class="more-link">전체보기</a>
+        </div>
+        <div class="cast-scroll" id="castList"></div>
+      </section>
+
+    </main>
+
+    <!-- 하단 고정 액션바 + 탭바 -->
+    <div class="detail-action-bar">
+      <div class="action-buttons">
+        <button class="btn btn-outline" id="prevBtn">이전</button>
+        <button class="btn btn-primary" id="addToWishlistBtn">+ 공연보관함에 담기</button>
+      </div>
+      <nav class="bottom-nav detail-nav" aria-label="주요 메뉴">
+        <button class="nav-item active" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+          <span class="nav-label">홈</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="6.5" />
+            <path d="M20 20l-4.5-4.5" stroke-linecap="round" />
+          </svg>
+          <span class="nav-label">탐색</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="5" width="16" height="15" rx="2" />
+            <path d="M4 9.5h16M8 3v3.5M16 3v3.5" stroke-linecap="round" />
+          </svg>
+          <span class="nav-label">캘린더</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 19V10M12 19V5M19 19v-6" stroke-linecap="round" />
+          </svg>
+          <span class="nav-label">분석</span>
+        </button>
+        <button class="nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="8" r="3.4" />
+            <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+          </svg>
+          <span class="nav-label">프로필</span>
+        </button>
+      </nav>
+    </div>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="detail.js"></script>
+</body>
+
+</html>

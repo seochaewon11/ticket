@@ -1,0 +1,151 @@
+/* ============================================
+   NOLI - login.css (로그인 화면)
+   ============================================ */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 28px 32px;
+  background: linear-gradient(
+    165deg,
+    #DCD2FB 0%,
+    #E9DCEE 30%,
+    #F3E3E4 60%,
+    #FBEDE6 100%
+  );
+}
+
+/* ---------- 상단 브랜딩 ---------- */
+.login-brand {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.login-logo-img {
+  width: 160px;
+  height: auto;
+  margin: 0 auto 18px;
+  display: block;
+}
+
+.login-brand h1 {
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.login-brand p {
+  font-size: 13.5px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 일러스트 카드 ---------- */
+.login-illustration {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  height: 230px;
+  border-radius: var(--radius-lg);
+  background: radial-gradient(circle at 50% 30%, #FBF5F2 0%, #F3E8F5 70%, #EFE4EE 100%);
+  box-shadow: var(--shadow-card);
+  margin: 8px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.login-illustration-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- 로그인 버튼 그룹 ---------- */
+.login-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+.login-btn-google {
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border: 1.5px solid var(--color-border);
+}
+
+.login-btn-kakao {
+  background-color: #FEE500;
+  color: #3A2E00;
+}
+
+.login-btn-naver {
+  background-color: #03C75A;
+  color: var(--color-white);
+}
+
+.login-btn-email {
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  box-shadow: var(--shadow-float);
+}
+
+.login-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ---------- 하단 링크 ---------- */
+.login-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--color-text-sub);
+  margin-bottom: 22px;
+}
+
+.login-links a {
+  color: var(--color-text-sub);
+}
+
+.login-links .dot-sep {
+  color: var(--color-text-mute);
+}
+
+/* ---------- 법적 고지 ---------- */
+.login-legal {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--color-text-mute);
+  line-height: 1.6;
+}
+
+.login-legal a {
+  color: var(--color-text-sub);
+  text-decoration: underline;
+}

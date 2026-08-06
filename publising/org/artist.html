@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 관심 아티스트</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="artist.css" />
+</head>
+
+<body>
+  <div class="app artist-page">
+
+    <!-- 상단바 -->
+    <header class="artist-topbar">
+      <div class="artist-topbar-row">
+        <button class="back-btn" id="backBtn" aria-label="뒤로가기">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <img class="mini-logo" src="img/logo.png" alt="NOLI" />
+        <div class="topbar-spacer"></div>
+      </div>
+      <div class="step-progress">
+        <span class="step is-filled"></span>
+        <span class="step is-filled"></span>
+        <span class="step"></span>
+      </div>
+      <p class="step-label">Step 2 of 3</p>
+    </header>
+
+    <!-- 타이틀 -->
+    <section class="artist-title">
+      <h2>좋아하는 아티스트가<br />있나요?</h2>
+      <p>선택하신 아티스트의 공연 소식을 가장 먼저 알려드릴게요.</p>
+    </section>
+
+    <!-- 검색바 -->
+    <section class="artist-search">
+      <div class="search-input-wrap">
+        <span id="searchIconWrap"></span>
+        <input type="text" id="artistSearchInput" placeholder="아티스트 이름을 검색해보세요" />
+      </div>
+    </section>
+
+    <!-- 아티스트 그리드: artist.js에서 동적 렌더링 -->
+    <section class="artist-grid" id="artistGrid"></section>
+
+    <!-- 하단 고정 CTA -->
+    <div class="artist-cta">
+      <button class="btn btn-disabled" id="completeBtn" disabled>설정 완료</button>
+    </div>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="artist.js"></script>
+</body>
+
+</html>

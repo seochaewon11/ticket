@@ -1,0 +1,302 @@
+/* ============================================
+   NOLI - common.css
+   공통 변수 / 리셋 / 재사용 컴포넌트 클래스
+   ============================================ */
+
+/* ---------- Font ---------- */
+@import url('https://cdn.jsdelivr.net/npm/@fontsource/42dot-sans@5.2.9/index.css');
+
+/* 42dot Sans가 CDN에 없을 경우를 대비한 대체 스택 */
+:root {
+  --font-family: '42dot Sans', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', system-ui, sans-serif;
+
+  /* ---------- Color: Primary (보라 계열) ---------- */
+  --color-primary: #A78BFA;         /* 뱃지/아이콘 배경 등 라이트 보라 */
+  --color-primary-strong: #7C5CFC;  /* 로고, 버튼, 강조 텍스트용 딥 보라 */
+  --color-primary-soft: #EDE7FE;    /* 연보라 배경 (선택 상태 등) */
+
+  /* ---------- Color: Accent (아이보리 포인트) ---------- */
+  --color-accent: #F7F0EC;          /* 앱 배경 톤 */
+  --color-accent-soft: #FBF5F2;     /* 카드/섹션 배경 보조 톤 */
+
+  /* ---------- Color: Pink (관람완료 등 보조 포인트) ---------- */
+  --color-pink: #F6D9DC;
+  --color-pink-strong: #D97C8C;
+
+  /* ---------- Color: Text ---------- */
+  --color-text: #1F2024;
+  --color-text-sub: #8B8B98;
+  --color-text-mute: #ADADB8;
+  --color-white: #FFFFFF;
+
+  /* ---------- Color: Surface ---------- */
+  --color-surface: #FFFFFF;
+  --color-disabled-bg: #EDE6E2;
+  --color-disabled-text: #B7AFAA;
+  --color-border: #EEE7E2;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* ---------- Shadow ---------- */
+  --shadow-card: 0 8px 24px rgba(31, 26, 40, 0.06);
+  --shadow-float: 0 10px 30px rgba(124, 92, 252, 0.18);
+  --shadow-nav: 0 -4px 20px rgba(31, 26, 40, 0.05);
+
+  /* ---------- Layout ---------- */
+  --app-max-width: 480px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text);
+  background-color: var(--color-accent);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.4;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary-strong);
+  outline-offset: 2px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, p {
+  margin: 0;
+}
+
+/* ---------- App Container (모바일 우선, max-width 480px) ---------- */
+.app {
+  position: relative;
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--color-accent);
+  overflow-x: hidden;
+}
+
+/* ---------- 공통 버튼 ---------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  font-size: 16px;
+  font-weight: 700;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  box-shadow: var(--shadow-float);
+}
+
+.btn-primary:disabled,
+.btn-primary.is-disabled {
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  box-shadow: none;
+  cursor: default;
+}
+
+.btn-disabled {
+  background-color: var(--color-disabled-bg);
+  color: var(--color-disabled-text);
+  cursor: default;
+}
+
+.btn-outline {
+  background-color: var(--color-white);
+  color: var(--color-primary-strong);
+  border: 1.5px solid var(--color-primary-strong);
+}
+
+/* ---------- 공통 뱃지 ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+}
+
+.badge-frost {
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
+  backdrop-filter: blur(4px);
+}
+
+/* ---------- 공통 상단바(뒤로가기 + 중앙 로고) ---------- */
+.back-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.back-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mini-logo {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+}
+
+.topbar-spacer {
+  width: 32px;
+  /* back-btn과 균형을 맞추기 위한 우측 여백 */
+}
+
+/* ---------- 공통 진행 표시(스텝 바) ---------- */
+.step-progress {
+  display: flex;
+  gap: 6px;
+  padding: 18px 20px 0;
+}
+
+.step-progress .step {
+  flex: 1;
+  height: 5px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-disabled-bg);
+}
+
+.step-progress .step.is-filled {
+  background-color: var(--color-primary-strong);
+}
+
+/* ---------- 공통 카드 ---------- */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- 공통 하단 탭바 ---------- */
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(232, 221, 255, 0.8);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  padding: 10px 8px calc(10px + env(safe-area-inset-bottom, 0px));
+  box-shadow: var(--shadow-nav);
+  z-index: 10;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  padding: 6px 4px;
+  border-radius: var(--radius-pill);
+  color: var(--color-text-mute);
+}
+
+.nav-item svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-item span.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  flex: 0 1 auto;
+  width: auto;
+  padding: 6px 16px;
+  border-radius: var(--radius-md);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  box-shadow: none;
+}
+
+.nav-item.active svg {
+  stroke: var(--color-white);
+  fill: var(--color-white);
+}
+
+/* ---------- 유틸리티 ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

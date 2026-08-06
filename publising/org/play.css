@@ -1,0 +1,304 @@
+/* ============================================
+   NOLI - play.css (공연 플레이리스트 화면)
+   ============================================ */
+
+.play-page {
+  padding-bottom: 100px; /* 하단 고정 탭바 높이만큼 여유 */
+}
+
+/* ---------- 상단 헤더 ---------- */
+.play-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 8px;
+}
+
+.hamburger-btn,
+.header-icon-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.hamburger-btn svg,
+.header-icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.logo-badge {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ---------- 타이틀 영역 ---------- */
+.play-title {
+  padding: 14px 20px 0;
+}
+
+.play-title h2 {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.play-title p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 플레이리스트 카드 리스트 ---------- */
+.playlist-list {
+  padding: 26px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.playlist-card {
+  position: relative;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* 카드 위쪽에 살짝 보이는 "다음 카드" 손잡이 느낌의 장식 바 */
+.playlist-card::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(167, 139, 250, 0.28);
+  z-index: -1;
+}
+
+.playlist-cover {
+  position: relative;
+  height: 230px;
+  width: 100%;
+}
+
+.playlist-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.like-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.like-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 2;
+}
+
+.playlist-body {
+  padding: 16px 18px 18px;
+}
+
+.playlist-body h3 {
+  font-size: 19px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.playlist-tagline {
+  font-size: 13.5px;
+  color: var(--color-text-sub);
+  margin-bottom: 16px;
+}
+
+.playlist-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatar-stack {
+  display: flex;
+}
+
+.avatar-stack .avatar-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--color-surface);
+  margin-left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatar-stack .avatar-dot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-stack .avatar-dot:first-child {
+  margin-left: 0;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.share-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-sub);
+}
+
+.share-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.save-btn {
+  padding: 9px 18px;
+  border-radius: var(--radius-pill);
+  color: var(--color-white);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: opacity 0.15s ease;
+}
+
+.save-btn.is-saved {
+  opacity: 0.55;
+}
+
+/* ---------- 최근 본 공연 추천 ---------- */
+.recent-section {
+  position: relative;
+  padding: 36px 20px 0;
+}
+
+.recent-section .section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.recent-section .section-header h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.recent-section .more-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+.recent-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.recent-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.recent-item {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.recent-poster {
+  width: 140px;
+  height: 178px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 8px;
+}
+
+.recent-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.recent-venue {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+/* 플로팅 + 버튼 */
+.fab-add {
+  position: fixed;
+  right: calc(50% - (var(--app-max-width) / 2) + 20px);
+  bottom: 112px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-float);
+  z-index: 11;
+}
+
+.fab-add svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 480px) {
+  .fab-add {
+    right: 20px;
+  }
+}
+
+/* ---------- 하단 탭바 (5개: 홈/탐색/보관함/캘린더/프로필) ----------
+   레이아웃/색상은 common.css의 .bottom-nav 공통 스타일을 그대로 사용 (중복 선언 제거) */

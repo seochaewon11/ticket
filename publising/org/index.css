@@ -1,0 +1,302 @@
+/* ============================================
+   NOLI - index.css (메인 홈 화면)
+   ============================================ */
+
+.index-page {
+  padding-bottom: 100px;
+  /* 하단 고정 nav 높이만큼 여유 (calendar/play/mypage와 동일하게 통일) */
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 20px 8px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 63px;
+  width: auto;
+}
+
+.settings-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.settings-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- Intro ---------- */
+.intro {
+  padding: 14px 20px 4px;
+}
+
+.intro h2 {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.intro p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- Recommend Section ---------- */
+.recommend-section {
+  padding: 22px 20px 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.section-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.more-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-strong);
+}
+
+/* ---------- Recommend Card ---------- */
+.recommend-card {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
+}
+
+.recommend-card .poster {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.recommend-card .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* 뱃지 가독성을 위한 하단 그라디언트 오버레이 (실제 이미지 / 플레이스홀더 공통 적용) */
+.recommend-card .poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(0, 0, 0, 0) 45%,
+      rgba(20, 10, 30, 0.55) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 실 포스터 이미지가 없을 때 사용하는 그라디언트 플레이스홀더 */
+.poster-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.poster-placeholder .poster-emoji {
+  position: relative;
+  z-index: 1;
+  font-size: 56px;
+  margin-bottom: 28px;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+}
+
+.like-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: transform 0.15s ease;
+}
+
+.like-btn:active {
+  transform: scale(0.9);
+}
+
+.like-btn svg {
+  width: 19px;
+  height: 19px;
+  stroke: var(--color-white);
+  fill: none;
+  stroke-width: 2;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+
+.like-btn.is-liked svg {
+  fill: var(--color-primary-strong);
+  stroke: var(--color-primary-strong);
+}
+
+.card-badges {
+  position: absolute;
+  left: 16px;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 6px;
+}
+
+.recommend-card .card-body {
+  padding: 16px 18px 20px;
+}
+
+.recommend-card .card-title {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.recommend-card .card-meta {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  line-height: 1.5;
+}
+
+/* ---------- CTA Buttons ---------- */
+.cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.btn-icon {
+  font-size: 15px;
+}
+
+/* ---------- Playlist Section ---------- */
+.playlist-section {
+  padding: 6px 20px 0;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.playlist-item:active {
+  transform: scale(0.98);
+}
+
+.playlist-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.playlist-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.wish-icon {
+  background-color: var(--color-primary);
+}
+
+.wish-icon svg {
+  fill: var(--color-white);
+  stroke: var(--color-white);
+}
+
+.watched-icon {
+  background-color: var(--color-pink);
+}
+
+.watched-icon svg {
+  fill: none;
+  stroke: var(--color-pink-strong);
+  stroke-width: 2;
+}
+
+.playlist-info {
+  flex: 1;
+}
+
+.playlist-label {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: 4px;
+}
+
+.playlist-count {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.playlist-count.wish {
+  color: var(--color-primary-strong);
+}
+
+.playlist-count.watched {
+  color: var(--color-pink-strong);
+}
+
+.chevron {
+  color: var(--color-text-mute);
+  font-size: 16px;
+}
+

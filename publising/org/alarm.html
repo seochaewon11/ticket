@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 알람 설정</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="alarm.css" />
+</head>
+
+<body>
+  <div class="app alarm-page">
+
+    <!-- 상단바 -->
+    <header class="alarm-topbar">
+      <button class="back-btn" id="backBtn" aria-label="뒤로가기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <h1>알람 설정</h1>
+    </header>
+
+    <!-- 대상 공연 정보 카드 -->
+    <section class="target-card">
+      <div class="target-thumb">
+        <img id="targetThumbImg" alt="공연 포스터" style="display:none;">
+      </div>
+      <div class="target-info">
+        <div class="target-tags" id="targetTags"></div>
+        <p class="target-title" id="targetTitle"></p>
+        <div class="target-schedule">
+          <span id="calendarIcon"></span>
+          <span id="targetDate"></span>
+          <span class="schedule-divider">|</span>
+          <span id="clockIcon"></span>
+          <span id="targetTime"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 알람 시간 선택 안내 -->
+    <section class="reminder-heading">
+      <span class="bell-icon" id="bellIcon"></span>
+      <div>
+        <h2>원하는 알람 시간을 모두 선택해주세요</h2>
+        <p>티켓 오픈 전 푸시 알림을 보내드려요.</p>
+      </div>
+    </section>
+
+    <!-- 알람 시간 토글 리스트: alarm.js에서 동적 렌더링 -->
+    <section class="reminder-list" id="reminderList"></section>
+
+    <!-- 하단 고정 CTA -->
+    <div class="alarm-cta">
+      <button class="btn btn-primary" id="completeBtn">설정 완료</button>
+    </div>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="alarm.js"></script>
+</body>
+
+</html>

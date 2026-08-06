@@ -1,0 +1,137 @@
+/* ============================================
+   NOLI - complete.css (설정완료 화면)
+   ============================================ */
+
+.complete-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(175deg, #FBEFEA 0%, #FDF3EE 45%, #FBEFEA 100%);
+}
+
+/* ---------- 배경 도트 파티클 ---------- */
+.dot-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dot-particles svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- 상단 진행 표시 ---------- */
+.complete-topbar {
+  position: relative;
+  z-index: 1;
+  padding: 18px 20px 0;
+}
+
+.complete-topbar .step-label {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 본문 영역 ---------- */
+.complete-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px 24px;
+}
+
+/* ---------- 완료 메시지 ---------- */
+.complete-message {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.complete-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+}
+
+.complete-message h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.complete-message p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- TASTE ANALYSIS 카드 ---------- */
+.taste-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 26px 24px;
+  margin-bottom: 22px;
+}
+
+.taste-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--color-primary-strong);
+  margin-bottom: 10px;
+}
+
+.taste-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.taste-tags {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.taste-tag {
+  padding: 11px 8px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-strong);
+  font-size: 13.5px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ---------- 안내 문구 ---------- */
+.complete-note {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  line-height: 1.6;
+  padding: 0 4px;
+}
+
+/* ---------- 하단 고정 CTA ---------- */
+.complete-cta {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 24px calc(20px + env(safe-area-inset-bottom, 0px));
+}
+
+.complete-cta .btn {
+  gap: 8px;
+}

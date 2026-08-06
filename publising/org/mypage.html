@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 마이페이지</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="mypage.css" />
+</head>
+
+<body>
+  <div class="app mypage-page">
+
+    <!-- 상단 헤더 -->
+    <header class="mypage-header">
+      <button class="hamburger-btn" aria-label="메뉴">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+        </svg>
+      </button>
+      <img class="logo-badge" src="img/logo.png" alt="NOLI" />
+      <button class="header-icon-btn" aria-label="알림">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.5 6 1.5 6h-15S6 13.5 6 9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M10 19a2 2 0 0 0 4 0" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- 프로필 카드 -->
+    <section class="profile-card">
+      <button class="profile-edit-icon" aria-label="프로필 편집">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M17 2l5 5-12 12H5v-5L17 2z" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <div class="profile-top-row">
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar">
+            <img id="profileAvatarImg" alt="프로필 사진" style="display:none;">
+          </div>
+          <span class="level-badge" id="levelBadge">LV.12</span>
+        </div>
+        <div>
+          <p class="profile-name" id="profileName">김노리 님</p>
+          <div class="profile-titles" id="profileTitles"></div>
+        </div>
+      </div>
+      <div class="profile-bottom-row">
+        <div class="genre-icon-stack" id="genreIconStack"></div>
+        <a href="#" class="more-link">전체보기 &gt;</a>
+      </div>
+    </section>
+
+    <!-- 취향 대시보드 -->
+    <section class="section-block">
+      <h3>취향 대시보드</h3>
+      <div class="dashboard-cards">
+        <div class="dashboard-card">
+          <span class="dashboard-icon" id="topGenreIcon"></span>
+          <p class="dashboard-label">최애 장르</p>
+          <p class="dashboard-value" id="topGenreValue"></p>
+        </div>
+        <div class="dashboard-card is-highlight">
+          <span class="dashboard-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <p class="dashboard-label">큐레이션 매칭률</p>
+          <p class="dashboard-value" id="matchRateValue"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 나의 공연 기억 -->
+    <section class="section-block">
+      <div class="section-title-row">
+        <h3>나의 공연 기억</h3>
+        <a href="#" class="more-link">더보기 &gt;</a>
+      </div>
+      <div class="memory-grid" id="memoryGrid"></div>
+    </section>
+
+    <!-- 메뉴 리스트 -->
+    <section class="menu-list">
+      <a href="#" class="menu-row">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0z" />
+        </svg>
+        <span class="menu-label">취향 프로필 수정</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="#" class="menu-row">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="12" r="3.2" />
+          <path
+            d="M19.4 13.5a7.6 7.6 0 0 0 0-3l1.9-1.4-2-3.4-2.2.8a7.7 7.7 0 0 0-2.6-1.5L14 2.5h-4l-.5 2.5a7.7 7.7 0 0 0-2.6 1.5l-2.2-.8-2 3.4L4.6 10.5a7.6 7.6 0 0 0 0 3L2.7 15l2 3.4 2.2-.8c.75.65 1.63 1.15 2.6 1.5l.5 2.4h4l.5-2.5a7.7 7.7 0 0 0 2.6-1.5l2.2.8 2-3.4-1.9-1.4z" />
+        </svg>
+        <span class="menu-label">설정</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="#" class="menu-row">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 13a8 8 0 0 1 16 0" />
+          <rect x="3" y="13" width="4" height="6" rx="1.5" />
+          <rect x="17" y="13" width="4" height="6" rx="1.5" />
+        </svg>
+        <span class="menu-label">고객 센터</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <a href="#" class="menu-row">
+        <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 8h.01M11 12h1v5h1" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="menu-label">공지사항 및 약관</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- 로그아웃 -->
+    <a href="#" class="logout-link" id="logoutLink">로그아웃</a>
+
+    <!-- 플로팅 티켓 버튼 -->
+    <button type="button" class="fab-ticket" id="fabTicket" aria-label="빠른 메뉴"></button>
+
+    <!-- 하단 탭바 -->
+    <nav class="bottom-nav mypage-nav" aria-label="주요 메뉴">
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span class="nav-label">홈</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="M20 20l-4.5-4.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">탐색</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="4" y="5" width="16" height="15" rx="2" />
+          <path d="M4 9.5h16M8 3v3.5M16 3v3.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">캘린더</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 19V10M12 19V5M19 19v-6" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">분석</span>
+      </button>
+      <button class="nav-item active" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="3.4" />
+          <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+        </svg>
+        <span class="nav-label">프로필</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="mypage.js"></script>
+</body>
+
+</html>

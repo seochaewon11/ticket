@@ -1,0 +1,346 @@
+/* ============================================
+   NOLI - calendar.css (공연 일정 화면)
+   ============================================ */
+
+.calendar-page {
+  padding-bottom: 100px; /* 하단 고정 탭바 높이만큼 여유 */
+}
+
+/* ---------- 상단 헤더 ---------- */
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 8px;
+}
+
+.calendar-header .logo {
+  display: flex;
+  align-items: center;
+}
+
+.calendar-header .logo img {
+  height: 48px;
+  width: auto;
+}
+
+.calendar-header .header-icon-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+}
+
+.calendar-header .header-icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ---------- 타이틀 ---------- */
+.calendar-title {
+  padding: 14px 20px 0;
+}
+
+.calendar-title h2 {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.calendar-title p {
+  font-size: 14px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 캘린더 위젯 카드 ---------- */
+.calendar-card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 20px 14px 16px;
+  margin: 22px 20px 0;
+}
+
+.calendar-nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.calendar-nav-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-sub);
+}
+
+.calendar-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.calendar-month-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.calendar-weekdays span {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-mute);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 4px;
+}
+
+.calendar-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 46px;
+  padding-top: 2px;
+}
+
+.calendar-date-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: background-color 0.15s ease;
+}
+
+.calendar-cell.is-empty .calendar-date-btn {
+  visibility: hidden;
+}
+
+.calendar-date-btn.is-selected {
+  background-color: var(--color-primary-strong);
+  color: var(--color-white);
+  font-weight: 800;
+}
+
+.event-dot-row {
+  display: flex;
+  gap: 3px;
+  margin-top: 3px;
+  height: 5px;
+}
+
+.event-dot {
+  width: 4.5px;
+  height: 4.5px;
+  border-radius: 50%;
+}
+
+.event-dot.dot-pink { background-color: var(--color-pink-strong); }
+.event-dot.dot-primary { background-color: var(--color-primary-strong); }
+.event-dot.dot-gray { background-color: var(--color-text-mute); }
+
+/* ---------- 티켓 오픈 알람 ---------- */
+.alert-section {
+  padding: 32px 20px 0;
+}
+
+.alert-section .section-header,
+.upcoming-section .section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.alert-section .section-header h3,
+.upcoming-section .section-header h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.alert-section .more-link,
+.upcoming-section .more-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+.alert-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.alert-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.alert-card {
+  flex-shrink: 0;
+  width: 78%;
+  border-radius: var(--radius-lg);
+  padding: 18px 18px 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.alert-card.theme-primary {
+  background-color: #DDD2FE;
+}
+
+.alert-card.theme-muted {
+  background-color: var(--color-disabled-bg);
+}
+
+.alert-dday {
+  display: inline-flex;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-pink);
+  color: var(--color-pink-strong);
+  font-size: 12.5px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.alert-clock-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-strong);
+}
+
+.alert-clock-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.alert-title {
+  font-size: 16.5px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.alert-schedule {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+.alert-card.theme-muted .alert-title,
+.alert-card.theme-muted .alert-schedule {
+  color: var(--color-text-mute);
+}
+
+/* ---------- 예정된 공연 ---------- */
+.upcoming-section {
+  padding: 32px 20px 0;
+}
+
+.upcoming-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 12px;
+}
+
+.upcoming-thumb {
+  width: 56px;
+  height: 72px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: var(--color-disabled-bg);
+}
+
+.upcoming-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upcoming-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.genre-tag {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.genre-tag.tag-classic {
+  background-color: var(--color-pink);
+  color: var(--color-pink-strong);
+}
+
+.genre-tag.tag-indie {
+  background-color: #DCE9FE;
+  color: #4C6FBF;
+}
+
+.upcoming-date {
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+  font-weight: 600;
+}
+
+.upcoming-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.upcoming-venue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+}
+
+.upcoming-venue svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}

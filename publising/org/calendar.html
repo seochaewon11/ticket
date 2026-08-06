@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 공연 일정</title>
+  <link rel="stylesheet" href="common.css" />
+  <link rel="stylesheet" href="calendar.css" />
+</head>
+
+<body>
+  <div class="app calendar-page">
+
+    <!-- 상단 헤더 -->
+    <header class="calendar-header">
+      <button class="header-icon-btn" id="backBtn" aria-label="뒤로가기">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <h1 class="logo"><img src="img/logo.png" alt="NOLI" /></h1>
+      <button class="header-icon-btn" aria-label="알림">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9a6 6 0 0 1 12 0c0 4.5 1.5 6 1.5 6h-15S6 13.5 6 9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+          <path d="M10 19a2 2 0 0 0 4 0" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- 타이틀 -->
+    <section class="calendar-title">
+      <h2>공연 일정</h2>
+      <p>이번 달의 예술적 여정을 확인하세요.</p>
+    </section>
+
+    <!-- 캘린더 위젯 카드 -->
+    <section class="calendar-card">
+      <div class="calendar-nav-row">
+        <button type="button" class="calendar-nav-btn" id="prevMonthBtn" aria-label="이전 달"></button>
+        <h3 class="calendar-month-title" id="calendarMonthTitle"></h3>
+        <button type="button" class="calendar-nav-btn" id="nextMonthBtn" aria-label="다음 달"></button>
+      </div>
+      <div class="calendar-weekdays">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+
+    <!-- 티켓 오픈 알람 -->
+    <section class="alert-section">
+      <div class="section-header">
+        <h3>티켓 오픈 알람</h3>
+        <a href="#" class="more-link">모두 보기</a>
+      </div>
+      <div class="alert-scroll" id="alertScroll"></div>
+    </section>
+
+    <!-- 예정된 공연 -->
+    <section class="upcoming-section">
+      <div class="section-header">
+        <h3>예정된 공연</h3>
+        <a href="#" class="more-link">모두 보기</a>
+      </div>
+      <div id="upcomingList"></div>
+    </section>
+
+    <!-- 하단 탭바 -->
+    <nav class="bottom-nav calendar-nav" aria-label="주요 메뉴">
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+        <span class="nav-label">홈</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="M20 20l-4.5-4.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">탐색</span>
+      </button>
+      <button class="nav-item active" aria-current="page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="4" y="5" width="16" height="15" rx="2" />
+          <path d="M4 9.5h16M8 3v3.5M16 3v3.5" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">캘린더</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 19V10M12 19V5M19 19v-6" stroke-linecap="round" />
+        </svg>
+        <span class="nav-label">분석</span>
+      </button>
+      <button class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="3.4" />
+          <path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6" />
+        </svg>
+        <span class="nav-label">프로필</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="data.js"></script>
+  <script src="calendar.js"></script>
+</body>
+
+</html>
