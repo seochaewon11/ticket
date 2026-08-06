@@ -288,7 +288,7 @@ export const LogoutWrap = styled.div`
 export const FabTicket = styled.button`
   position: fixed;
   right: calc(50% - (${({ theme }) => theme.layout.appMaxWidth} / 2) + 20px);
-  bottom: 78px;
+  bottom: 112px;
   width: 50px;
   height: 50px;
   border-radius: 50%;
