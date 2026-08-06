@@ -21,8 +21,8 @@ import {
   SectionTitleRow,
 } from './styles'
 
-const MENU_ITEMS: { icon: IconName; label: string }[] = [
-  { icon: 'preference', label: '취향 프로필 수정' },
+const MENU_ITEMS: { icon: IconName; label: string; path?: string }[] = [
+  { icon: 'preference', label: '취향 프로필 수정', path: '/add' },
   { icon: 'settings', label: '설정' },
   { icon: 'headset', label: '고객 센터' },
   { icon: 'notice', label: '공지사항 및 약관' },
@@ -66,7 +66,14 @@ export function MyPage() {
 
         <MenuList>
           {MENU_ITEMS.map((item) => (
-            <MenuRow key={item.label} href="#">
+            <MenuRow
+              key={item.label}
+              href="#"
+              onClick={(e) => {
+                e.preventDefault()
+                if (item.path) navigate(item.path)
+              }}
+            >
               <Icon name={item.icon} size={20} className="menu-icon" />
               <MenuLabel>{item.label}</MenuLabel>
               <Icon name="chevronRight" size={16} className="chevron" />
