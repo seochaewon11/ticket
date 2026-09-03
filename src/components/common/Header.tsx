@@ -11,9 +11,11 @@ export interface HeaderProps {
   title?: string;
   /** 뒤로가기 버튼 클릭 핸들러 (back=true일 때만 사용) */
   onBack?: () => void;
+  /** "transparent"면 배경이 투명해지고 로고/아이콘이 흰색이 된다 (프로필 화면의 보라 그라데이션 배경용) */
+  variant?: "solid" | "transparent";
 }
 
-const Bar = styled.header<{ $withBack: boolean }>`
+const Bar = styled.header<{ $withBack: boolean; $transparent: boolean }>`
   position: sticky;
   top: 0;
   z-index: 20;
@@ -21,8 +23,8 @@ const Bar = styled.header<{ $withBack: boolean }>`
   align-items: center;
   justify-content: center;
   height: 52px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(6px);
+  background: ${(props) => (props.$transparent ? "transparent" : "rgba(255, 255, 255, 0.96)")};
+  backdrop-filter: ${(props) => (props.$transparent ? "none" : "blur(6px)")};
 
   ${(props) =>
     props.$withBack &&
@@ -32,9 +34,10 @@ const Bar = styled.header<{ $withBack: boolean }>`
     `}
 `;
 
-const Logo = styled(NoliLogo)`
+const Logo = styled(NoliLogo)<{ $transparent: boolean }>`
   height: 22px;
   width: auto;
+  ${(props) => props.$transparent && "filter: brightness(0) invert(1);"}
 `;
 
 const LogoButton = styled.button`
@@ -42,7 +45,7 @@ const LogoButton = styled.button`
   align-items: center;
 `;
 
-const BackButton = styled.button`
+const BackButton = styled.button<{ $transparent: boolean }>`
   position: absolute;
   left: var(--space-4);
   top: 50%;
@@ -52,7 +55,7 @@ const BackButton = styled.button`
   justify-content: center;
   width: 32px;
   height: 32px;
-  color: var(--color-text);
+  color: ${(props) => (props.$transparent ? "var(--color-white)" : "var(--color-text)")};
 
   svg {
     width: 22px;
@@ -67,30 +70,31 @@ const Title = styled.span`
 `;
 
 /** org/js/common.js의 NOLI_COMMON.renderHeader를 이식한 상단바(로고형 / 뒤로가기+타이틀형) */
-export function Header({ back = false, title = "", onBack }: HeaderProps) {
+export function Header({ back = false, title = "", onBack, variant = "solid" }: HeaderProps) {
   const navigate = useNavigate();
   const goMain = () => navigate(ROUTES.main);
+  const transparent = variant === "transparent";
 
   if (!back) {
     return (
-      <Bar $withBack={false}>
+      <Bar $withBack={false} $transparent={transparent}>
         <LogoButton type="button" aria-label="NOLI 홈으로" onClick={goMain}>
-          <Logo />
+          <Logo $transparent={transparent} />
         </LogoButton>
       </Bar>
     );
   }
 
   return (
-    <Bar $withBack>
-      <BackButton type="button" onClick={onBack} aria-label="뒤로가기">
+    <Bar $withBack $transparent={transparent}>
+      <BackButton type="button" $transparent={transparent} onClick={onBack} aria-label="뒤로가기">
         <Icon name="back" />
       </BackButton>
       {title ? (
         <Title>{title}</Title>
       ) : (
         <LogoButton type="button" aria-label="NOLI 홈으로" onClick={goMain}>
-          <Logo />
+          <Logo $transparent={transparent} />
         </LogoButton>
       )}
     </Bar>

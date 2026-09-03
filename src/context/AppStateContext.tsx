@@ -12,6 +12,8 @@ interface AppStateValue {
   userPreference: UserPreference;
   /** 소셜/이메일 로그인 버튼 클릭 시 호출 (실제 인증 없음) */
   login: () => void;
+  /** 프로필 화면 로그아웃 버튼 클릭 시 호출 */
+  logout: () => void;
   /** 취향설정 화면에서 단계별 선택값 갱신 */
   updatePreference: (patch: Partial<UserPreference>) => void;
   /** 취향설정 마지막 단계 완료 처리 */
@@ -29,6 +31,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       session,
       userPreference,
       login: () => setSession((prev) => ({ ...prev, isLoggedIn: true })),
+      logout: () => setSession((prev) => ({ ...prev, isLoggedIn: false })),
       updatePreference: (patch) => setUserPreference((prev) => ({ ...prev, ...patch })),
       completeFavorite: () =>
         setUserPreference((prev) => ({ ...prev, completed: true, step: prev.totalSteps })),
