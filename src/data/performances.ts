@@ -1,6 +1,11 @@
 import mainImage1 from "../assets/performances/main_1.png";
 import mainImage2 from "../assets/performances/main_2.png";
 import mainImage3 from "../assets/performances/main_3.png";
+import mainImage4 from "../assets/performances/main_4.png";
+import mainImage5 from "../assets/performances/main_5.png";
+import mainImage6 from "../assets/performances/main_6.png";
+import mainImage7 from "../assets/performances/main_7.png";
+import mainImage8 from "../assets/performances/main_8.png";
 import type { Performance } from "../types";
 
 /** 메인 화면 - 히어로 및 맞춤 추천 공연 데이터 (상세화면 전용 필드 포함) */
@@ -64,6 +69,7 @@ export const performances: Performance[] = [
     title: "데스노트",
     category: "musical",
     theme: "deathnote",
+    imageUrl: mainImage4,
     dateRange: "2026.09.10-11.02",
     venue: "충무아트센터",
     matchRate: 88,
@@ -75,6 +81,7 @@ export const performances: Performance[] = [
     title: "시카고",
     category: "musical",
     theme: "chicago",
+    imageUrl: mainImage5,
     dateRange: "2026.09.15-10.30",
     venue: "LG아트센터 서울",
     matchRate: 76,
@@ -86,6 +93,7 @@ export const performances: Performance[] = [
     title: "엘리자벳",
     category: "musical",
     theme: "elizabeth",
+    imageUrl: mainImage6,
     dateRange: "2026.10.01-11.20",
     venue: "세종문화회관 대극장",
     matchRate: 82,
@@ -97,6 +105,7 @@ export const performances: Performance[] = [
     title: "빨래",
     category: "musical",
     theme: "ppallae",
+    imageUrl: mainImage7,
     dateRange: "2026.09.05-10.12",
     venue: "동양예술극장",
     matchRate: 73,
@@ -108,6 +117,7 @@ export const performances: Performance[] = [
     title: "태연 콘서트",
     category: "concert",
     theme: "taeyeon",
+    imageUrl: mainImage8,
     dateRange: "2026.11.08-11.09",
     venue: "올림픽공원 체조경기장",
     matchRate: 91,

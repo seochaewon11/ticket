@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { BottomNav } from "../../components/common/BottomNav";
 import { Header } from "../../components/common/Header";
@@ -20,6 +21,12 @@ const Screen = styled.div`
 const HeroMedia = styled.div`
   width: 100%;
   aspect-ratio: 4 / 5;
+`;
+
+/** 카드 목록(main/아티스트소식/이달의추천) 포스터와 layoutId를 공유해 셰어드 엘리먼트 전환을 만든다 */
+const HeroPosterMotionWrap = styled(motion.div)`
+  width: 100%;
+  height: 100%;
 `;
 
 const HeroPoster = styled(PosterPlaceholder)`
@@ -71,8 +78,16 @@ const SaveButton = styled.button`
   }
 `;
 
-function findPerformance(id?: string): Performance | undefined {
-  return performances.find((item) => item.id === id) ?? performances[0];
+/**
+ * id가 performances(큐레이션된 공연)에 없으면, 카드 목록(아티스트소식/이달의추천)에서
+ * navigate(..., { state: { performance } })로 함께 넘어온 간이 정보를 대신 사용한다.
+ * 그마저 없으면(주소창 직접 진입 등) 히어로 공연으로 대체한다.
+ */
+function findPerformance(id: string | undefined, quickView: Performance | undefined): Performance | undefined {
+  const curated = performances.find((item) => item.id === id);
+  if (curated) return curated;
+  if (quickView && quickView.id === id) return quickView;
+  return performances[0];
 }
 
 /**
@@ -82,14 +97,18 @@ function findPerformance(id?: string): Performance | undefined {
  */
 export function DetailPage() {
   const { performanceId } = useParams<{ performanceId: string }>();
-  return <DetailPageContent key={performanceId} performanceId={performanceId} />;
+  const location = useLocation();
+  const quickView = (location.state as { performance?: Performance } | null)?.performance;
+  return <DetailPageContent key={performanceId} performanceId={performanceId} quickView={quickView} />;
 }
 
-function DetailPageContent({ performanceId }: { performanceId?: string }) {
+function DetailPageContent({ performanceId, quickView }: { performanceId?: string; quickView?: Performance }) {
   const navigate = useNavigate();
   const { userPreference } = useAppState();
 
-  const [performance, setPerformance] = useState<Performance | undefined>(() => findPerformance(performanceId));
+  const [performance, setPerformance] = useState<Performance | undefined>(() =>
+    findPerformance(performanceId, quickView),
+  );
   const [synopsisExpanded, setSynopsisExpanded] = useState(false);
 
   if (!performance) return null;
@@ -101,9 +120,11 @@ function DetailPageContent({ performanceId }: { performanceId?: string }) {
       <Header back onBack={() => navigate(ROUTES.main)} />
       <Screen>
         <HeroMedia>
-          <HeroPoster $theme={performance.theme} imageUrl={performance.imageUrl} alt={performance.title}>
-            <Watermark>{shortTitle}</Watermark>
-          </HeroPoster>
+          <HeroPosterMotionWrap layoutId={`poster-${performance.id}`}>
+            <HeroPoster $theme={performance.theme} imageUrl={performance.imageUrl} alt={performance.title}>
+              <Watermark>{shortTitle}</Watermark>
+            </HeroPoster>
+          </HeroPosterMotionWrap>
         </HeroMedia>
 
         <Body>
@@ -115,24 +136,30 @@ function DetailPageContent({ performanceId }: { performanceId?: string }) {
             {performance.isLiked ? "보관함에 담겼어요" : "나만의 보관함에 담기"}
           </SaveButton>
 
-          <MatchCard
-            userName={userPreference.userName}
-            matchRate={performance.matchRate}
-            matchReasonHtml={performance.matchReasonHtml}
-            genrePreferenceText={performance.genrePreferenceText}
-            trendingText={performance.trendingText}
-          />
-          <InfoSection
-            period={performance.period}
-            runningTime={performance.runningTime}
-            priceRange={performance.priceRange}
-          />
-          <Synopsis
-            text={performance.synopsis}
-            expanded={synopsisExpanded}
-            onToggle={() => setSynopsisExpanded((v) => !v)}
-          />
-          <CastList cast={performance.castList ?? []} />
+          {performance.matchRate > 0 && (
+            <MatchCard
+              userName={userPreference.userName}
+              matchRate={performance.matchRate}
+              matchReasonHtml={performance.matchReasonHtml}
+              genrePreferenceText={performance.genrePreferenceText}
+              trendingText={performance.trendingText}
+            />
+          )}
+          {performance.period && (
+            <InfoSection
+              period={performance.period}
+              runningTime={performance.runningTime}
+              priceRange={performance.priceRange}
+            />
+          )}
+          {performance.synopsis && (
+            <Synopsis
+              text={performance.synopsis}
+              expanded={synopsisExpanded}
+              onToggle={() => setSynopsisExpanded((v) => !v)}
+            />
+          )}
+          {performance.castList && performance.castList.length > 0 && <CastList cast={performance.castList} />}
         </Body>
       </Screen>
       <BottomNav />

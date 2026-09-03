@@ -1,10 +1,29 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 /**
  * org/css/common.css의 공통 재사용 컴포넌트(칩/버튼/카드/섹션 등)를
  * styled-components 프리미티브로 이식. main/detail/calendar/report/profile 등
  * 여러 화면에서 공통으로 재사용한다.
  */
+
+/**
+ * 클릭 가능한 카드/타일(카테고리 카드, 분위기 칩, 아티스트 아바타, 포스터 카드 등)에
+ * 공통으로 적용하는 hover/press "튀어나오는" 피드백. CategoryGrid 카드에서 처음 도입한
+ * 인터랙션을 전 화면의 카드형 요소에 일관되게 재사용하기 위한 믹스인.
+ */
+export const cardPopFeedback = css`
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+
+  &:active {
+    transform: scale(1.06);
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.04);
+    }
+  }
+`;
 
 /* ---------- Pill / badge ---------- */
 export type PillVariant = "gray" | "purple" | "outline" | "pink" | "onImage";

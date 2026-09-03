@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { PosterPlaceholder } from "../common/PosterPlaceholder";
+import { cardPopFeedback } from "../common/ui";
 import type { ArtistOption } from "../../types";
 
 export interface ArtistResultsProps {
@@ -48,7 +49,9 @@ const SelectButton = styled.button<{ $selected: boolean }>`
   font-weight: 700;
   background: ${(props) => (props.$selected ? "var(--gradient-primary)" : "var(--color-badge-gray-bg)")};
   color: ${(props) => (props.$selected ? "var(--color-white)" : "var(--color-text-sub)")};
-  transition: background 0.15s ease, color 0.15s ease;
+  ${cardPopFeedback}
+  transition: background 0.15s ease, color 0.15s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease;
 `;
 
 /* ---------- 검색 결과 여러 명 : 그리드 ---------- */
@@ -63,6 +66,7 @@ const CardItem = styled.button`
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
+  ${cardPopFeedback}
 `;
 
 const AvatarMd = styled.div<{ $selected: boolean }>`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import type { CategoryOption } from "../../types";
+import { cardPopFeedback } from "../common/ui";
 import { CategoryIcon } from "./CategoryIcon";
 
 export interface CategoryGridProps {
@@ -35,20 +36,12 @@ const Card = styled.button<{ $selected: boolean }>`
   border: 1.5px solid ${(props) => (props.$selected ? "var(--color-primary)" : "var(--color-border)")};
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  transition: border-color 0.15s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.2s ease;
+  ${cardPopFeedback}
+  transition: border-color 0.15s ease, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
 
-  /* 클릭이 확정되기 전(누르는 순간) 카드가 살짝 튀어나오듯 커지는 피드백 */
-  &:active {
-    transform: scale(1.06);
+  &:active,
+  &:hover {
     box-shadow: var(--shadow-float);
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      transform: scale(1.04);
-      box-shadow: var(--shadow-float);
-    }
   }
 `;
 

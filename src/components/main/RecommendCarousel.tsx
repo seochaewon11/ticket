@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { useSearchOverlay } from "../../context/SearchOverlayContext";
 import type { Performance } from "../../types";
 import { Icon } from "../common/Icon";
 import { PosterPlaceholder } from "../common/PosterPlaceholder";
-import { IconButton, Pill, ScrollX, Section, SectionActions, SectionHead, SectionTitle } from "../common/ui";
+import { IconButton, Pill, ScrollX, Section, SectionActions, SectionHead, SectionTitle, cardPopFeedback } from "../common/ui";
 
 export interface RecommendCarouselProps {
   userName: string;
@@ -74,6 +75,18 @@ const CardWrap = styled.button`
   box-shadow: var(--shadow-card);
   scroll-snap-align: start;
   text-align: left;
+  ${cardPopFeedback}
+
+  &:active,
+  &:hover {
+    box-shadow: var(--shadow-float);
+  }
+`;
+
+/** DetailPage 히어로 포스터와 layoutId를 공유해 셰어드 엘리먼트 전환을 만든다 */
+const CardPosterMotionWrap = styled(motion.div)`
+  width: 100%;
+  height: 100%;
 `;
 
 const CardPoster = styled(PosterPlaceholder)`
@@ -132,7 +145,9 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
         <Track>
           {visibleItems.map((p) => (
             <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id)}>
-              <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
+              <CardPosterMotionWrap layoutId={`poster-${p.id}`}>
+                <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
+              </CardPosterMotionWrap>
               <CardBody>
                 <CardTitle>{p.title}</CardTitle>
                 <Pill $variant="purple">내 취향 일치 {p.matchRate}%</Pill>
