@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { useSearchOverlay } from "../../context/SearchOverlayContext";
 import type { Performance } from "../../types";
@@ -11,6 +12,10 @@ export interface RecommendCarouselProps {
   onOpenDetail: (id: string) => void;
   onRetakePreferences: () => void;
 }
+
+/** 기본으로 보여줄 개수, "계속" 아이콘을 누르면 펼쳐지는 최대 개수 (MonthlyPicksSection과 동일한 정책) */
+const COLLAPSED_COUNT = 4;
+const EXPANDED_MAX_COUNT = 10;
 
 const CarouselWrap = styled.div`
   position: relative;
@@ -27,7 +32,7 @@ const CarouselWrap = styled.div`
   }
 `;
 
-const ScrollHintIcon = styled.span`
+const ScrollHintIcon = styled.button`
   position: absolute;
   top: 50%;
   right: 6px;
@@ -42,7 +47,11 @@ const ScrollHintIcon = styled.span`
   background: rgba(255, 255, 255, 0.92);
   color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
-  pointer-events: none;
+  transition: transform 0.15s ease;
+
+  &:active {
+    transform: translateY(-50%) scale(0.92);
+  }
 
   svg {
     width: 14px;
@@ -91,9 +100,16 @@ const CardTitle = styled.p`
   margin-bottom: 6px;
 `;
 
-/** org/js/main.js의 renderRecommendCarousel 이식. 취향 일치 70% 이상인 공연만 최대 7개까지 가로 스크롤로 보여준다 */
+/**
+ * org/js/main.js의 renderRecommendCarousel 이식. 취향 일치 70% 이상인 공연을 가로 스크롤로 보여준다.
+ * 처음엔 4개만 보이고, 우측 "계속" 아이콘을 누르면 최대 10개까지 펼쳐진다.
+ */
 export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePreferences }: RecommendCarouselProps) {
   const { openSearch } = useSearchOverlay();
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleItems = expanded ? items.slice(0, EXPANDED_MAX_COUNT) : items.slice(0, COLLAPSED_COUNT);
+  const canExpand = !expanded && items.length > COLLAPSED_COUNT;
 
   return (
     <Section>
@@ -114,7 +130,7 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
       </SectionHead>
       <CarouselWrap>
         <Track>
-          {items.slice(0, 7).map((p) => (
+          {visibleItems.map((p) => (
             <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id)}>
               <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
               <CardBody>
@@ -124,9 +140,11 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
             </CardWrap>
           ))}
         </Track>
-        <ScrollHintIcon aria-hidden="true">
-          <Icon name="chevron" />
-        </ScrollHintIcon>
+        {canExpand && (
+          <ScrollHintIcon type="button" aria-label="맞춤 공연 더 보기" onClick={() => setExpanded(true)}>
+            <Icon name="chevron" />
+          </ScrollHintIcon>
+        )}
       </CarouselWrap>
     </Section>
   );
