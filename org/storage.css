@@ -1,0 +1,74 @@
+/* ==========================================================================
+   NOLI - storage.css
+   보관함(공연 플레이리스트) 화면 : 저장한 공연 그리드 + 최근 본 공연 그리드
+   ========================================================================== */
+
+#screen-storage {
+  padding: var(--space-5);
+  padding-bottom: calc(var(--tabbar-height) + var(--space-6));
+}
+
+.storage-page-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.storage-page-sub {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-5);
+}
+
+.storage-section-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin: var(--space-6) 0 var(--space-4);
+}
+
+.storage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.storage-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.storage-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.storage-card-heart {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: var(--color-primary);
+}
+
+.storage-card-heart svg {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+.storage-card-category {
+  font-size: 11px;
+  color: var(--color-text-sub);
+}
+
+.storage-card-title {
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

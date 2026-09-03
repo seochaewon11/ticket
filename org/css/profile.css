@@ -1,0 +1,169 @@
+/* ==========================================================================
+   NOLI - profile.css
+   프로필 화면 : 전체 보라 그라데이션 배경 + 인사/태그 + 공연 기억 + 메뉴 + 로그아웃
+   ========================================================================== */
+
+#screen-profile.active {
+  background: var(--gradient-primary);
+  min-height: 100vh;
+}
+
+#screen-profile .app-header {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+#screen-profile .app-header .logo {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: var(--color-white);
+}
+
+#screen-profile .app-header-back {
+  color: var(--color-white);
+}
+
+.profile-body {
+  padding: var(--space-2) var(--space-5) calc(var(--tabbar-height) + var(--space-6));
+  color: var(--color-white);
+}
+
+/* ---------- 인사 영역 ---------- */
+.profile-greet-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.profile-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.profile-avatar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-greet-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-greet-hi {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+}
+
+.profile-greet-name {
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.profile-search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--color-white);
+  flex-shrink: 0;
+}
+
+.profile-search-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- 취향 태그 ---------- */
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.profile-tag {
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--color-white);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+/* ---------- 나의 공연 기억 ---------- */
+.profile-section-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+  color: var(--color-white);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.memory-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.memory-media {
+  position: relative;
+  width: 100%;
+  height: 110px;
+}
+
+.memory-date-badge {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.memory-title {
+  padding: var(--space-2) var(--space-3) var(--space-3);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+/* ---------- 메뉴 리스트 (흰 카드) ---------- */
+.profile-menu-card {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: 0 var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.profile-menu-card .menu-row {
+  color: var(--color-text);
+}
+
+.profile-logout-btn {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--color-white);
+  font-size: 14.5px;
+  font-weight: 700;
+}

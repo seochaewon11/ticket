@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 취향 기반 공연 큐레이션</title>
+
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/favorite.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/detail.css" />
+  <link rel="stylesheet" href="css/calendar.css" />
+  <link rel="stylesheet" href="css/alarm.css" />
+  <link rel="stylesheet" href="css/storage.css" />
+  <link rel="stylesheet" href="css/report.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- 1. 스플래시 화면 -->
+    <section id="screen-splash" class="screen"></section>
+
+    <!-- 1.5. 로그인 화면 -->
+    <section id="screen-login" class="screen"></section>
+
+    <!-- 2. 취향설정 화면 (장르·분위기 → 아티스트 검색 → 완료, favorite.js 내부에서 서브스텝 전환) -->
+    <section id="screen-favorite" class="screen"></section>
+
+    <!-- 3. 메인 화면 -->
+    <section id="screen-main" class="screen"></section>
+
+    <!-- 4. 공연 상세화면 -->
+    <section id="screen-detail" class="screen"></section>
+
+    <!-- 5. 캘린더 -->
+    <section id="screen-calendar" class="screen"></section>
+
+    <!-- 6. 알람설정 -->
+    <section id="screen-alarm" class="screen"></section>
+
+    <!-- 7. 보관함 -->
+    <section id="screen-storage" class="screen"></section>
+
+    <!-- 8. 리포트 -->
+    <section id="screen-report" class="screen"></section>
+
+    <!-- 9. 프로필 -->
+    <section id="screen-profile" class="screen"></section>
+
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/splash.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/favorite.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/alarm.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/report.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

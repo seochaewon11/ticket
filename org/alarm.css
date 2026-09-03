@@ -1,0 +1,116 @@
+/* ==========================================================================
+   NOLI - alarm.css
+   알람설정 화면 : 대상 공연 카드 + 알람 시간 토글 리스트 + 완료 버튼
+   (시안 기준 하단 탭바 없음, 하단 고정 CTA 버튼만 존재)
+   ========================================================================== */
+
+#screen-alarm {
+  padding: var(--space-5) var(--space-5) calc(96px + var(--space-6));
+}
+
+/* ---------- 대상 공연 카드 ---------- */
+.alarm-target-card {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.alarm-target-thumb {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.alarm-target-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.alarm-target-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.alarm-target-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alarm-target-time {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+}
+
+.alarm-target-time svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ---------- 안내 문구 ---------- */
+.alarm-guide-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.alarm-guide-title em {
+  font-style: normal;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.alarm-guide-sub {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-5);
+}
+
+/* ---------- 알람 시간 토글 리스트 ---------- */
+.alarm-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-3);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.alarm-toggle-row.is-on {
+  background: var(--color-primary-softer);
+  border-color: var(--color-primary-soft);
+}
+
+.alarm-toggle-label {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--color-text-sub);
+}
+
+.alarm-toggle-row.is-on .alarm-toggle-label {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* ---------- 하단 고정 CTA (탭바 없음) ---------- */
+.alarm-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  padding: var(--space-4) var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--color-white) 65%, rgba(255, 255, 255, 0));
+  z-index: 30;
+}

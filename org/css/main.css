@@ -1,0 +1,271 @@
+/* ==========================================================================
+   NOLI - main.css
+   메인 화면(공연 큐레이션 홈) 전용 스타일
+   ========================================================================== */
+
+#screen-main {
+  padding-bottom: calc(var(--tabbar-height) + var(--space-6));
+}
+
+/* 헤더(.app-header), 이미지 placeholder(.img-ph), 하단탭바(.bottom-nav)는
+   여러 화면에서 공통으로 쓰여 css/common.css 로 이동했습니다. */
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+}
+
+.hero-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.hero-media .img-ph::after {
+  background: linear-gradient(to top, rgba(10, 8, 20, 0.75) 0%, rgba(10, 8, 20, 0.05) 45%, transparent 65%);
+}
+
+.hero-media .watermark {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.14);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero-like-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+.hero-info {
+  padding: var(--space-4) var(--space-5) 0;
+}
+
+.hero-meta-row {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.hero-meta-row .pill--rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #F5A623;
+  background: var(--color-badge-gray-bg);
+}
+
+.hero-meta-row .pill--rating svg {
+  width: 12px;
+  height: 12px;
+}
+
+.hero-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: var(--space-1);
+}
+
+.hero-schedule {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-3);
+}
+
+.hero-match {
+  margin-bottom: var(--space-3);
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+/* ---------- Recommend carousel (취향 맞춤 공연) ---------- */
+.reco-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 158px;
+  height: 210px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.reco-card .img-ph::after {
+  background: linear-gradient(to top, rgba(8, 6, 16, 0.85) 0%, rgba(8, 6, 16, 0.05) 55%, transparent 75%);
+}
+
+.reco-card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-3);
+  color: var(--color-white);
+}
+
+.reco-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.reco-card-sub {
+  font-size: 10px;
+  opacity: 0.75;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Artist news list ---------- */
+.artist-card {
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+
+.artist-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+}
+
+.artist-card-actions {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  gap: var(--space-2);
+}
+
+.artist-card-body {
+  padding: var(--space-4);
+}
+
+.artist-card-badges {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.artist-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.artist-card-sub {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-4);
+}
+
+/* ---------- Monthly picks (그라데이션 박스) ---------- */
+.monthly-box {
+  margin: var(--space-6) var(--space-5) 0;
+  padding: var(--space-5);
+  border-radius: var(--radius-xl);
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+.monthly-box-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.monthly-box-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.monthly-box .icon-btn {
+  background: rgba(255, 255, 255, 0.18);
+  color: var(--color-white);
+}
+
+.monthly-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.monthly-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.monthly-item-thumb {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.monthly-item-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.monthly-item-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.monthly-item-meta .pill {
+  padding: 3px 8px;
+  font-size: 10px;
+}
+
+.monthly-item-meta .pill--pink {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary-dark);
+}
+
+.monthly-item-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.monthly-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.monthly-item-venue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.monthly-item-venue svg {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+}
+
+/* 하단 탭바(.bottom-nav, .nav-item 등)는 css/common.css 로 이동했습니다. */

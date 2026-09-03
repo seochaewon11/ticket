@@ -1,0 +1,45 @@
+/* ==========================================================================
+   NOLI - splash.css
+   스플래시 화면 : 그라데이션 배경 + 중앙 로고 (반짝임 애니메이션)
+   ========================================================================== */
+
+#screen-splash.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--gradient-splash-bg);
+}
+
+.splash-logo-wrap {
+  width: 66%;
+  max-width: 300px;
+  animation: splash-logo-in 0.8s cubic-bezier(0.22, 0.85, 0.3, 1) both;
+}
+
+.splash-logo-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 18px rgba(91, 33, 182, 0.18));
+}
+
+@keyframes splash-logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.86) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-logo-wrap {
+    animation: none;
+  }
+  .splash-logo-wrap svg * {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,332 @@
+/* ==========================================================================
+   NOLI - favorite.css
+   취향설정 화면 : 진행바 + 공연 카테고리 그리드 + 분위기 칩 + 하단 CTA
+   ========================================================================== */
+
+#screen-favorite.active {
+  display: block;
+}
+
+#screen-favorite {
+  padding: var(--space-6) var(--space-5) calc(96px + var(--space-6));
+}
+
+/* ---------- 진행바 ---------- */
+.progress-track {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-primary-soft);
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  transition: width 0.3s ease;
+}
+
+.progress-step {
+  text-align: right;
+  font-size: 12px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-6);
+}
+
+/* ---------- 타이틀 ---------- */
+.favorite-title {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.favorite-subtitle {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-5);
+}
+
+.favorite-section-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin: var(--space-8) 0 var(--space-4);
+}
+
+/* ---------- 카테고리 그리드 ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-3);
+  background: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.category-card:active {
+  transform: scale(0.98);
+}
+
+.category-card.is-selected {
+  border-color: var(--color-primary);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+}
+
+.category-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.category-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+/* 카테고리별 아이콘 배경/색상 (디자인 시안 기준) */
+.category-icon--concert { background: #E4DDFB; color: #6A3FD6; }
+.category-icon--musical { background: #FBE1E3; color: #B6495A; }
+.category-icon--band { background: #EFEDE9; color: #6B6259; }
+.category-icon--dance { background: #8B7BE8; color: #FFFFFF; }
+.category-icon--classic { background: #FCE3DF; color: #A6455C; }
+.category-icon--exhibit { background: #F9DAD6; color: #C15C4E; }
+
+/* ---------- 분위기 칩 ---------- */
+.mood-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.mood-chip {
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--color-badge-gray-bg);
+  color: var(--color-text-sub);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.mood-chip.is-selected {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+/* ---------- 하단 CTA ---------- */
+.favorite-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--app-max-width);
+  padding: var(--space-4) var(--space-5) calc(var(--space-5) + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, var(--color-white) 65%, rgba(255, 255, 255, 0));
+  z-index: 30;
+}
+
+.favorite-cta .btn[disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   아티스트 검색 서브스텝 (Step 3 of 3)
+   ========================================================================== */
+
+.artist-search-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px var(--space-4);
+  background: var(--color-badge-gray-bg);
+  border-radius: var(--radius-full);
+  color: var(--color-text-placeholder);
+  margin-bottom: var(--space-6);
+}
+
+.artist-search-box svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.artist-search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: var(--color-text);
+  outline: none;
+}
+
+.artist-search-input::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.artist-results {
+  min-height: 220px;
+}
+
+.artist-empty {
+  text-align: center;
+  color: var(--color-text-sub);
+  font-size: 14px;
+  padding: var(--space-8) 0;
+}
+
+/* 검색 결과가 1명일 때 : 중앙 정렬 단일 카드 */
+.artist-single {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-6) 0 var(--space-4);
+}
+
+.artist-avatar-lg {
+  width: 100px;
+  height: 100px;
+  margin-bottom: var(--space-4);
+}
+
+.artist-single-name {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: var(--space-5);
+}
+
+.artist-select-btn {
+  padding: 11px 28px;
+  border-radius: var(--radius-full);
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--color-badge-gray-bg);
+  color: var(--color-text-sub);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.artist-select-btn.is-selected {
+  background: var(--gradient-primary);
+  color: var(--color-white);
+}
+
+/* 검색 결과가 여러 명일 때 : 그리드 */
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5) var(--space-3);
+}
+
+.artist-card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.artist-avatar-md {
+  width: 72px;
+  height: 72px;
+  border: 2.5px solid transparent;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.artist-avatar-md.is-selected {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px var(--color-primary-soft);
+}
+
+.artist-item-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.artist-item-name.is-selected {
+  color: var(--color-primary-dark);
+}
+
+/* ==========================================================================
+   완료 서브스텝 (분석 결과 요약)
+   ========================================================================== */
+
+.complete-wrap {
+  padding-bottom: var(--space-6);
+}
+
+.complete-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.complete-subtitle {
+  font-size: 14px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-6);
+}
+
+.analysis-card {
+  padding: var(--space-6) var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.analysis-eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.analysis-heading {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: var(--space-5);
+}
+
+.analysis-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.analysis-tag {
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.analysis-footer {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.complete-cta {
+  width: 100%;
+}

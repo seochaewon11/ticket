@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 취향설정 (아티스트 선택)</title>
+
+  <!-- 공통 스타일 + 이 화면 전용 스타일만 로드 (favorite.css를 그대로 재사용) -->
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/favorite.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- favorite.js의 아티스트 검색 서브스텝을 그대로 재사용합니다.
+         (favorite.html / favorite_search.html과 로직·스타일을 공유하고,
+          진입 시 검색어 없이 기본 추천 그리드 상태로 바로 이동만 시킵니다) -->
+    <section id="screen-favorite" class="screen active"></section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/favorite.js"></script>
+  <script>
+    // 이 파일은 취향설정 플로우 중 "아티스트 선택(그리드)" 화면만 바로 보여주기 위한 개별 리뷰용 파일입니다.
+    // 검색어 없이 기본 추천 6명 그리드 상태로 시작하며, 시안(5번 이미지)과 동일하게
+    // 박해일이 이미 선택된 상태(userPreference.selectedArtists 기본값)로 보여줍니다.
+    document.addEventListener("DOMContentLoaded", () => {
+      NOLI_FAVORITE.goToStep("artist");
+    });
+  </script>
+</body>
+</html>

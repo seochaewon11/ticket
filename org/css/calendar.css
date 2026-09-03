@@ -1,0 +1,232 @@
+/* ==========================================================================
+   NOLI - calendar.css
+   캘린더(공연 일정) 화면 : 월간 캘린더 + 티켓오픈 알림 리스트 + 예정된 공연
+   ========================================================================== */
+
+#screen-calendar {
+  padding: var(--space-5);
+  padding-bottom: calc(var(--tabbar-height) + var(--space-6));
+}
+
+.calendar-page-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.calendar-page-sub {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  margin-bottom: var(--space-5);
+}
+
+/* ---------- 월간 캘린더 카드 ---------- */
+.calendar-card {
+  padding: var(--space-5) var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.calendar-nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: var(--color-text-sub);
+}
+
+.calendar-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.calendar-month-label {
+  font-size: 17px;
+  font-weight: 800;
+  min-width: 100px;
+  text-align: center;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: var(--space-2);
+}
+
+.calendar-weekdays span {
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-sub);
+  font-weight: 600;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 6px;
+}
+
+.calendar-day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  font-size: 13.5px;
+  color: var(--color-text);
+  border-radius: var(--radius-full);
+}
+
+.calendar-day.is-empty {
+  pointer-events: none;
+}
+
+.calendar-day.is-selected .calendar-day-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.calendar-day-dots {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+  height: 4px;
+}
+
+.calendar-day-dots span {
+  width: 4px;
+  height: 4px;
+  border-radius: var(--radius-full);
+}
+
+.calendar-day-dots .dot-purple { background: var(--color-primary); }
+.calendar-day-dots .dot-danger { background: #E0355B; }
+.calendar-day-dots .dot-gray { background: var(--color-text-placeholder); }
+
+/* ---------- 티켓 오픈 알림 ---------- */
+.calendar-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+
+.alarm-card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(120deg, var(--color-primary-soft), var(--color-primary-softer));
+  margin-bottom: var(--space-3);
+}
+
+.alarm-card--urgent {
+  background: linear-gradient(120deg, #FBDCE1, #FDEEF0);
+}
+
+.alarm-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.alarm-card-bell {
+  color: var(--color-primary);
+}
+
+.alarm-card--urgent .alarm-card-bell {
+  color: #E0355B;
+}
+
+.alarm-card-bell svg {
+  width: 18px;
+  height: 18px;
+}
+
+.alarm-card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 4px;
+}
+
+.alarm-card--urgent .alarm-card-title {
+  color: #C22449;
+}
+
+.alarm-card-time {
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 예정된 공연 ---------- */
+.upcoming-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.upcoming-thumb {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.upcoming-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.upcoming-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.upcoming-date {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.upcoming-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.upcoming-venue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+.upcoming-venue svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}

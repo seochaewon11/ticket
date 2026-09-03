@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 취향설정</title>
+
+  <!-- 공통 스타일 + 이 화면 전용 스타일만 로드 -->
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/favorite.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- 개별 파일에서는 SPA 전환 없이 이 화면만 바로 보여줍니다 (screen active 클래스 고정) -->
+    <section id="screen-favorite" class="screen active"></section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/favorite.js"></script>
+</body>
+</html>

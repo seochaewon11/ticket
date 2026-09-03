@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 로그인</title>
+
+  <!-- 공통 스타일 + 이 화면 전용 스타일만 로드 -->
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/splash.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- 개별 파일에서는 SPA 전환 없이 이 화면만 바로 보여줍니다 (screen active 클래스 고정) -->
+    <section id="screen-login" class="screen active"></section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <!-- 로고 벡터(splash.js)를 재사용하기 위해 함께 로드합니다.
+       splash.js는 #screen-splash가 없으면 자체적으로 아무 것도 하지 않습니다. -->
+  <script src="js/splash.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

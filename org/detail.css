@@ -1,0 +1,243 @@
+/* ==========================================================================
+   NOLI - detail.css
+   공연 상세화면 : 히어로 + 취향일치 분석 카드 + 상세정보 + 시놉시스 + 출연진
+   ========================================================================== */
+
+#screen-detail {
+  padding-bottom: calc(var(--tabbar-height) + var(--space-6));
+}
+
+/* ---------- 히어로 (제목이 이미지 아래에 위치, 오버레이 없음) ---------- */
+.detail-hero-media {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.detail-hero-media .img-ph::after {
+  background: linear-gradient(to top, rgba(10, 8, 20, 0.55) 0%, rgba(10, 8, 20, 0.05) 45%, transparent 65%);
+}
+
+.detail-hero-media .watermark {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255, 255, 255, 0.14);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.detail-body {
+  padding: var(--space-5);
+}
+
+.detail-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+
+.detail-save-btn {
+  margin-bottom: var(--space-5);
+}
+
+/* ---------- 취향일치 분석 카드 ---------- */
+.analysis-match-card {
+  padding: var(--space-5);
+  margin-bottom: var(--space-6);
+}
+
+.analysis-match-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+}
+
+.analysis-match-head svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.analysis-match-head .match-rate {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.analysis-match-reason {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.analysis-match-reason em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.match-info-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-primary-softer);
+  margin-bottom: var(--space-2);
+}
+
+.match-info-row:last-child {
+  margin-bottom: 0;
+}
+
+.match-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.match-info-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.match-info-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.match-info-sub {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}
+
+/* ---------- 공연 상세정보 ---------- */
+.detail-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: var(--space-4);
+}
+
+.detail-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.detail-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  color: var(--color-text-sub);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.detail-info-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.detail-info-label {
+  font-size: 12.5px;
+  color: var(--color-text-sub);
+  margin-bottom: 2px;
+}
+
+.detail-info-value {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+/* ---------- 시놉시스 ---------- */
+.synopsis-text {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.synopsis-text.is-collapsed {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.synopsis-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-sub);
+}
+
+.synopsis-toggle svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.synopsis-toggle.is-expanded svg {
+  transform: rotate(180deg);
+}
+
+/* ---------- 출연진 ---------- */
+.cast-scroll {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.cast-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.cast-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  width: 68px;
+}
+
+.cast-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.cast-name {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cast-role {
+  font-size: 11px;
+  color: var(--color-text-sub);
+  text-align: center;
+}

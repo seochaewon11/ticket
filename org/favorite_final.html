@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>NOLI - 취향설정 완료</title>
+
+  <!-- 공통 스타일 + 이 화면 전용 스타일만 로드 (favorite.css를 그대로 재사용) -->
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/favorite.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- favorite.js의 완료 서브스텝을 그대로 재사용합니다.
+         (favorite.html / favorite_search.html / favorite_artist.html과 로직·스타일을 공유합니다) -->
+    <section id="screen-favorite" class="screen active"></section>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/favorite.js"></script>
+  <script>
+    // 이 파일은 취향설정 플로우의 마지막 "완료(분석 결과)" 화면만 바로 보여주기 위한 개별 리뷰용 파일입니다.
+    // 첨부 이미지(6번)와 동일한 태그 조합(콘서트·뮤지컬 / 다정한·아름다운 / 박해일·이준영)을
+    // 재현하기 위해 선택 상태를 이미지 기준으로 맞춰둡니다.
+    document.addEventListener("DOMContentLoaded", () => {
+      const { userPreference } = window.NOLI_DATA;
+      userPreference.selectedCategories = ["concert", "musical"];
+      userPreference.selectedMoods = ["warm", "beautiful"];
+      userPreference.selectedArtists = ["parkhaeil", "leejoonyoung"];
+
+      NOLI_FAVORITE.goToStep("complete");
+    });
+  </script>
+</body>
+</html>
