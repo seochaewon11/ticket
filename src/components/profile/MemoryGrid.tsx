@@ -51,7 +51,7 @@ export function MemoryGrid({ items }: MemoryGridProps) {
       {items.map((m) => (
         <Card key={m.id}>
           <Media>
-            <PosterPlaceholder $theme={m.theme} alt={m.title} />
+            <PosterPlaceholder $theme={m.theme} imageUrl={m.imageUrl} alt={m.title} />
             <DateBadge>{m.date}</DateBadge>
           </Media>
           <CardTitle>{m.title}</CardTitle>

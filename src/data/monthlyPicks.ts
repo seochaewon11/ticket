@@ -1,5 +1,6 @@
 import mainImage2 from "../assets/performances/main_2.png";
 import mainImage3 from "../assets/performances/main_3.png";
+import mainImage8 from "../assets/performances/main_8.png";
 import type { MonthlyPick } from "../types";
 
 /** 메인 화면 - 이달의 추천 공연 (하단 그라데이션 박스). 포스터는 main_2/main_3 이미지를 번갈아 사용한다 */
@@ -17,7 +18,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-bts-daejeon",
     category: "콘서트",
     theme: "bts",
-    imageUrl: mainImage3,
+    imageUrl: mainImage8,
     date: "10.25(수)",
     title: "BTS 대전콘서트",
     venue: "예술의전당 콘서트홀",

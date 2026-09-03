@@ -151,6 +151,7 @@ export interface StorageItem {
   category: string;
   title: string;
   theme: PosterTheme;
+  imageUrl?: string;
 }
 
 export interface ViewingTrendPoint {
@@ -170,6 +171,7 @@ export interface TopArtist {
   role: string;
   count: number;
   theme: PosterTheme;
+  imageUrl?: string;
 }
 
 export interface MemoryItem {
@@ -177,6 +179,7 @@ export interface MemoryItem {
   title: string;
   theme: PosterTheme;
   date: string;
+  imageUrl?: string;
 }
 
 export interface ProfileMenuItem {

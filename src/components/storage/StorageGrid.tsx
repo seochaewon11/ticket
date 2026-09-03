@@ -64,7 +64,7 @@ export function StorageGrid({ items, showHeart = false }: StorageGridProps) {
       {items.map((item) => (
         <Card key={item.id}>
           <Media>
-            <PosterPlaceholder $theme={item.theme} alt={item.title} />
+            <PosterPlaceholder $theme={item.theme} imageUrl={item.imageUrl} alt={item.title} />
             {showHeart && (
               <HeartBadge aria-hidden="true">
                 <Icon name="heart" filled />

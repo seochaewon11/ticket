@@ -5,7 +5,7 @@ import mainImage4 from "../assets/performances/main_4.png";
 import mainImage5 from "../assets/performances/main_5.png";
 import mainImage6 from "../assets/performances/main_6.png";
 import mainImage7 from "../assets/performances/main_7.png";
-import mainImage8 from "../assets/performances/main_8.png";
+import mainImage9 from "../assets/performances/main_9.png";
 import type { Performance } from "../types";
 
 /** 메인 화면 - 히어로 및 맞춤 추천 공연 데이터 (상세화면 전용 필드 포함) */
@@ -117,7 +117,7 @@ export const performances: Performance[] = [
     title: "태연 콘서트",
     category: "concert",
     theme: "taeyeon",
-    imageUrl: mainImage8,
+    imageUrl: mainImage9,
     dateRange: "2026.11.08-11.09",
     venue: "올림픽공원 체조경기장",
     matchRate: 91,

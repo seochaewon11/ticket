@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { useSearchOverlay } from "../../context/SearchOverlayContext";
@@ -14,9 +14,8 @@ export interface RecommendCarouselProps {
   onRetakePreferences: () => void;
 }
 
-/** 기본으로 보여줄 개수, "계속" 아이콘을 누르면 펼쳐지는 최대 개수 (MonthlyPicksSection과 동일한 정책) */
-const COLLAPSED_COUNT = 4;
-const EXPANDED_MAX_COUNT = 10;
+/** 가로 스크롤로 보여줄 최대 개수 */
+const MAX_VISIBLE_COUNT = 7;
 
 const CarouselWrap = styled.div`
   position: relative;
@@ -114,15 +113,20 @@ const CardTitle = styled.p`
 `;
 
 /**
- * org/js/main.js의 renderRecommendCarousel 이식. 취향 일치 70% 이상인 공연을 가로 스크롤로 보여준다.
- * 처음엔 4개만 보이고, 우측 "계속" 아이콘을 누르면 최대 10개까지 펼쳐진다.
+ * org/js/main.js의 renderRecommendCarousel 이식. 취향 일치 70% 이상인 공연을 최대 7개까지 가로 스크롤로 보여준다.
+ * 우측 "계속" 아이콘을 누르면 트랙이 옆으로 슬라이드되어 다음 카드들을 보여준다(터치 드래그로도 스크롤 가능).
  */
 export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePreferences }: RecommendCarouselProps) {
   const { openSearch } = useSearchOverlay();
-  const [expanded, setExpanded] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const visibleItems = expanded ? items.slice(0, EXPANDED_MAX_COUNT) : items.slice(0, COLLAPSED_COUNT);
-  const canExpand = !expanded && items.length > COLLAPSED_COUNT;
+  const visibleItems = items.slice(0, MAX_VISIBLE_COUNT);
+
+  const handleScrollNext = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({ left: track.clientWidth * 0.85, behavior: "smooth" });
+  };
 
   return (
     <Section>
@@ -142,7 +146,7 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
         </SectionActions>
       </SectionHead>
       <CarouselWrap>
-        <Track>
+        <Track ref={trackRef}>
           {visibleItems.map((p) => (
             <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id)}>
               <CardPosterMotionWrap layoutId={`poster-${p.id}`}>
@@ -155,11 +159,9 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
             </CardWrap>
           ))}
         </Track>
-        {canExpand && (
-          <ScrollHintIcon type="button" aria-label="맞춤 공연 더 보기" onClick={() => setExpanded(true)}>
-            <Icon name="chevron" />
-          </ScrollHintIcon>
-        )}
+        <ScrollHintIcon type="button" aria-label="다음 공연 보기" onClick={handleScrollNext}>
+          <Icon name="chevron" />
+        </ScrollHintIcon>
       </CarouselWrap>
     </Section>
   );

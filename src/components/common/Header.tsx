@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import logoImage from "../../assets/brand/logo.png";
 import { ROUTES } from "../../router/routes";
 import { Icon } from "./Icon";
-import { NoliLogo } from "./NoliLogo";
 
 export interface HeaderProps {
   /** 뒤로가기 버튼 표시 여부 */
@@ -34,7 +34,7 @@ const Bar = styled.header<{ $withBack: boolean; $transparent: boolean }>`
     `}
 `;
 
-const Logo = styled(NoliLogo)<{ $transparent: boolean }>`
+const Logo = styled.img<{ $transparent: boolean }>`
   height: 22px;
   width: auto;
   ${(props) => props.$transparent && "filter: brightness(0) invert(1);"}
@@ -79,7 +79,7 @@ export function Header({ back = false, title = "", onBack, variant = "solid" }: 
     return (
       <Bar $withBack={false} $transparent={transparent}>
         <LogoButton type="button" aria-label="NOLI 홈으로" onClick={goMain}>
-          <Logo $transparent={transparent} />
+          <Logo src={logoImage} alt="NOLI" $transparent={transparent} />
         </LogoButton>
       </Bar>
     );
@@ -94,7 +94,7 @@ export function Header({ back = false, title = "", onBack, variant = "solid" }: 
         <Title>{title}</Title>
       ) : (
         <LogoButton type="button" aria-label="NOLI 홈으로" onClick={goMain}>
-          <Logo $transparent={transparent} />
+          <Logo src={logoImage} alt="NOLI" $transparent={transparent} />
         </LogoButton>
       )}
     </Bar>

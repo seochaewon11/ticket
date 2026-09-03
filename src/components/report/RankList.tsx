@@ -85,7 +85,7 @@ export function RankList({ items }: RankListProps) {
         <Row key={a.rank}>
           <RankBadge>{a.rank}</RankBadge>
           <Avatar>
-            <PosterPlaceholder $theme={a.theme} alt={a.name} />
+            <PosterPlaceholder $theme={a.theme} imageUrl={a.imageUrl} alt={a.name} />
           </Avatar>
           <Body>
             <Name>{a.name}</Name>
