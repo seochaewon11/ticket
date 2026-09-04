@@ -10,9 +10,25 @@ import { Header } from "../../components/common/Header";
 import { useAppState } from "../../context/AppStateContext";
 import { artistNews as initialArtistNews, monthlyPicks, performances } from "../../data";
 import { detailPath, ROUTES } from "../../router/routes";
+import type { Performance, UserPreference } from "../../types";
 
 /** "NOLI가 찾은 맞춤 공연들"에는 취향 일치도 70% 이상인 공연만 추천한다 */
 const MIN_RECOMMEND_MATCH_RATE = 70;
+
+/**
+ * 취향설정(카테고리/분위기)과 얼마나 겹치는지로 취향 일치도를 계산한다.
+ * 기본 40% + 카테고리 일치 시 +35% + 겹치는 분위기 1개당 +15% (최대 98%).
+ * 아티스트 선택은 공연-아티스트 연결 데이터가 없어 반영하지 않는다.
+ */
+function computeMatchRate(performance: Performance, preference: UserPreference): number {
+  let score = 40;
+  if (performance.categoryId && preference.selectedCategories.includes(performance.categoryId)) {
+    score += 35;
+  }
+  const matchedMoods = (performance.moodIds ?? []).filter((moodId) => preference.selectedMoods.includes(moodId));
+  score += matchedMoods.length * 15;
+  return Math.min(98, score);
+}
 
 const Screen = styled.div`
   padding-bottom: calc(var(--tabbar-height) + var(--space-6));
@@ -27,9 +43,15 @@ export function MainPage() {
   const { userPreference, likedPerformanceIds, toggleLikedPerformance } = useAppState();
   const [artistNewsList, setArtistNewsList] = useState(initialArtistNews);
 
-  const performanceList = performances.map((p) => ({ ...p, isLiked: likedPerformanceIds.includes(p.id) }));
+  const performanceList = performances.map((p) => ({
+    ...p,
+    isLiked: likedPerformanceIds.includes(p.id),
+    matchRate: computeMatchRate(p, userPreference),
+  }));
   const hero = performanceList.find((p) => p.isHero);
-  const recommended = performanceList.filter((p) => !p.isHero && p.matchRate >= MIN_RECOMMEND_MATCH_RATE);
+  const recommended = performanceList
+    .filter((p) => !p.isHero && p.matchRate >= MIN_RECOMMEND_MATCH_RATE)
+    .sort((a, b) => b.matchRate - a.matchRate);
 
   const handleToggleArtistLike = (id: string) => {
     setArtistNewsList((prev) => prev.map((a) => (a.id === id ? { ...a, isLiked: !a.isLiked } : a)));
