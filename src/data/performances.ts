@@ -1,6 +1,5 @@
 import mainImage1 from "../assets/performances/main_1.png";
 import mainImage2 from "../assets/performances/main_2.png";
-import mainImage3 from "../assets/performances/main_3.png";
 import mainImage4 from "../assets/performances/main_4.png";
 import mainImage5 from "../assets/performances/main_5.png";
 import mainImage6 from "../assets/performances/main_6.png";
@@ -59,7 +58,7 @@ export const performances: Performance[] = [
     title: "비틀쥬스",
     category: "musical",
     theme: "beetlejuice",
-    imageUrl: mainImage3,
+    imageUrl: mainImage2,
     dateRange: "",
     venue: "",
     matchRate: 80,
