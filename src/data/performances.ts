@@ -38,7 +38,7 @@ export const performances: Performance[] = [
     castList: [
       { name: "옥주현", role: "엘파바 역", theme: "artist-6", imageUrl: castImage1 },
       { name: "정선아", role: "글린다 역", theme: "artist-7", imageUrl: castImage2 },
-      { name: "고은성", role: "피에로 역", theme: "" },
+      { name: "고은성", role: "피에로 역", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -62,9 +62,9 @@ export const performances: Performance[] = [
     synopsis:
       "가난한 폴란드 소녀 마리는 과학자의 꿈을 품고 파리 소르본 대학교에 입학한다. 피에르 퀴리와 함께 새로운 원소 라듐을 발견해 노벨상을 거머쥐지만, 라듐이 지닌 치유의 빛과 공장 노동자들을 병들게 하는 어두운 이면을 동시에 마주하며 깊은 도덕적 딜레마에 빠진다.",
     castList: [
-      { name: "Ailsa Davidson", role: "Marie Curie 역", theme: "" },
-      { name: "Thomas Josling", role: "Pierre Curie 역", theme: "" },
-      { name: "Chrissie Bhima", role: "Anne Kowalska 역", theme: "" },
+      { name: "Ailsa Davidson", role: "Marie Curie 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "Thomas Josling", role: "Pierre Curie 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "Chrissie Bhima", role: "Anne Kowalska 역", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -88,9 +88,9 @@ export const performances: Performance[] = [
     synopsis:
       "괴짜 소녀 리디아 디츠는 최근 세상을 떠난 다정한 부부 바바라와 아담을 만나며 유령의 세계에 발을 들인다. 살아있는 사람들을 쫓아내려는 두 유령 앞에 줄무늬 옷을 입은 사기꾼 유령 비틀쥬스가 나타나고, 엑소시즘과 위장 결혼, 무대를 가득 채우는 거대한 샌드웜까지 등장하는 유쾌하고 기묘한 소동이 펼쳐진다.",
     castList: [
-      { name: "Justin Collette", role: "Beetlejuice 역", theme: "" },
-      { name: "Isabella Esler", role: "Lydia Deetz 역", theme: "" },
-      { name: "Megan McGinnis", role: "Barbara 역", theme: "" },
+      { name: "Justin Collette", role: "Beetlejuice 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "Isabella Esler", role: "Lydia Deetz 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "Megan McGinnis", role: "Barbara 역", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -114,9 +114,9 @@ export const performances: Performance[] = [
     synopsis:
       "법과 정의를 고민하던 천재 고등학생 야가미 라이토는 우연히 손에 넣은 데스노트로 세상을 바꿀 힘을 얻는다. 이름이 적히면 죽는다는 노트의 비밀을 깨달은 라이토는 스스로 정의의 심판자 '키라'가 되어 범죄자들을 처단하기 시작하고, 그를 쫓는 천재 탐정 엘과의 숨 막히는 두뇌싸움이 펼쳐진다.",
     castList: [
-      { name: "홍광호", role: "야가미 라이토 역", theme: "" },
-      { name: "김준수", role: "엘(L) 역", theme: "" },
-      { name: "강홍석", role: "류크 역", theme: "" },
+      { name: "홍광호", role: "야가미 라이토 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "김준수", role: "엘(L) 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "강홍석", role: "류크 역", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -140,9 +140,9 @@ export const performances: Performance[] = [
     synopsis:
       "1920년대 재즈 시대의 시카고, 내연남을 살해한 록시 하트는 남편을 속여 위기를 모면하려 하지만 결국 진실이 드러나 체포된다. 시카고 최고의 스타 변호사 빌리 플린을 만난 록시는 언론 플레이 끝에 무죄를 선고받고, 라이벌이었던 벨마 켈리와 손잡고 화려한 보드빌 스타로 거듭난다.",
     castList: [
-      { name: "정선아", role: "벨마 켈리 역", theme: "" },
-      { name: "아이비", role: "록시 하트 역", theme: "" },
-      { name: "최재림", role: "빌리 플린 역", theme: "" },
+      { name: "정선아", role: "벨마 켈리 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "아이비", role: "록시 하트 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "최재림", role: "빌리 플린 역", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -166,9 +166,9 @@ export const performances: Performance[] = [
     synopsis:
       "자유를 갈망했던 오스트리아 황후 엘리자벳과, 운명처럼 그녀 곁을 맴도는 '죽음(Der Tod)'의 이야기. 화려한 황실 뒤에 감춰진 고독 속에서 엘리자벳을 암살한 루케니는 100년째 이어지는 재판에서 그녀가 죽음을 두려워한 것이 아니라 스스로 죽음을 사랑했을 뿐이라고 항변한다.",
     castList: [
-      { name: "린아", role: "엘리자벳 역", theme: "" },
-      { name: "카이", role: "죽음(Der Tod) 역", theme: "" },
-      { name: "이지혜", role: "엘리자벳 역(더블캐스트)", theme: "" },
+      { name: "린아", role: "엘리자벳 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "카이", role: "죽음(Der Tod) 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "이지혜", role: "엘리자벳 역(더블캐스트)", theme: "artist-1", imageUrl: castImage1 },
     ],
   },
   {
@@ -191,8 +191,8 @@ export const performances: Performance[] = [
     synopsis:
       "강원도에서 상경해 서울 달동네에 정착한 27살 나영은 몽골 청년 솔롱고를 옥상 빨랫줄에서 만나며 조금씩 가까워진다. 부당한 해고 위기에 맞서는 나영과 이방인으로 살아가는 솔롱고, 그리고 이웃들의 소소하고 따뜻한 이야기가 정겹게 펼쳐지는 소극장 뮤지컬.",
     castList: [
-      { name: "서은지", role: "나영 역", theme: "" },
-      { name: "노희찬", role: "솔롱고 역", theme: "" },
+      { name: "서은지", role: "나영 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "노희찬", role: "솔롱고 역", theme: "artist-2", imageUrl: castImage2 },
     ],
   },
   {
