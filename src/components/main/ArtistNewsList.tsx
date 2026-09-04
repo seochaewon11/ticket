@@ -129,9 +129,11 @@ export function ArtistNewsList({ userName, items, onToggleLike }: ArtistNewsList
             {matched ? (
               <PosterMotionWrap
                 type="button"
-                layoutId={`poster-${matched.id}`}
+                layoutId={`poster-artistnews-${matched.id}`}
                 aria-label={`${a.title} 상세보기`}
-                onClick={() => navigate(detailPath(matched.id))}
+                onClick={() =>
+                  navigate(detailPath(matched.id), { state: { fromLayoutId: `poster-artistnews-${matched.id}` } })
+                }
               >
                 <PosterPlaceholder $theme={a.theme} imageUrl={a.imageUrl} alt={a.artistName} />
               </PosterMotionWrap>

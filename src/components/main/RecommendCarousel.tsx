@@ -10,7 +10,7 @@ import { IconButton, Pill, ScrollX, Section, SectionActions, SectionHead, Sectio
 export interface RecommendCarouselProps {
   userName: string;
   items: Performance[];
-  onOpenDetail: (id: string) => void;
+  onOpenDetail: (id: string, fromLayoutId: string) => void;
   onRetakePreferences: () => void;
 }
 
@@ -147,9 +147,11 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
       </SectionHead>
       <CarouselWrap>
         <Track ref={trackRef}>
-          {visibleItems.map((p) => (
-            <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id)}>
-              <CardPosterMotionWrap layoutId={`poster-${p.id}`}>
+          {visibleItems.map((p) => {
+            const layoutId = `poster-carousel-${p.id}`;
+            return (
+            <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id, layoutId)}>
+              <CardPosterMotionWrap layoutId={layoutId}>
                 <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
               </CardPosterMotionWrap>
               <CardBody>
@@ -157,7 +159,8 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
                 <Pill $variant="purple">내 취향 일치 {p.matchRate}%</Pill>
               </CardBody>
             </CardWrap>
-          ))}
+            );
+          })}
         </Track>
         <ScrollHintIcon type="button" aria-label="다음 공연 보기" onClick={handleScrollNext}>
           <Icon name="chevron" />

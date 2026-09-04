@@ -98,11 +98,26 @@ function findPerformance(id: string | undefined, quickView: Performance | undefi
 export function DetailPage() {
   const { performanceId } = useParams<{ performanceId: string }>();
   const location = useLocation();
-  const quickView = (location.state as { performance?: Performance } | null)?.performance;
-  return <DetailPageContent key={performanceId} performanceId={performanceId} quickView={quickView} />;
+  const state = location.state as { performance?: Performance; fromLayoutId?: string } | null;
+  return (
+    <DetailPageContent
+      key={performanceId}
+      performanceId={performanceId}
+      quickView={state?.performance}
+      fromLayoutId={state?.fromLayoutId}
+    />
+  );
 }
 
-function DetailPageContent({ performanceId, quickView }: { performanceId?: string; quickView?: Performance }) {
+function DetailPageContent({
+  performanceId,
+  quickView,
+  fromLayoutId,
+}: {
+  performanceId?: string;
+  quickView?: Performance;
+  fromLayoutId?: string;
+}) {
   const navigate = useNavigate();
   const { userPreference } = useAppState();
 
@@ -120,7 +135,7 @@ function DetailPageContent({ performanceId, quickView }: { performanceId?: strin
       <Header back onBack={() => navigate(ROUTES.main)} />
       <Screen>
         <HeroMedia>
-          <HeroPosterMotionWrap layoutId={`poster-${performance.id}`}>
+          <HeroPosterMotionWrap layoutId={fromLayoutId}>
             <HeroPoster $theme={performance.theme} imageUrl={performance.imageUrl} alt={performance.title}>
               <Watermark>{shortTitle}</Watermark>
             </HeroPoster>

@@ -53,7 +53,7 @@ export function MainPage() {
         <RecommendCarousel
           userName={userPreference.userName}
           items={recommended}
-          onOpenDetail={(id) => navigate(detailPath(id))}
+          onOpenDetail={(id, fromLayoutId) => navigate(detailPath(id), { state: { fromLayoutId } })}
           onRetakePreferences={() => navigate(ROUTES.favorite)}
         />
         <ArtistNewsList
