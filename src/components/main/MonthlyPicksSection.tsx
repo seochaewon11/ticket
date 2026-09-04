@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useAppState } from "../../context/AppStateContext";
 import { performances } from "../../data";
 import { detailPath } from "../../router/routes";
 import type { MonthlyPick, Performance } from "../../types";
@@ -73,7 +74,7 @@ const Track = styled(ScrollX)`
   padding-right: var(--space-3);
 `;
 
-const CardWrap = styled.button`
+const CardWrap = styled.div`
   position: relative;
   flex: 0 0 auto;
   width: 136px;
@@ -82,6 +83,13 @@ const CardWrap = styled.button`
   overflow: hidden;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   scroll-snap-align: start;
+`;
+
+const PosterButton = styled.button`
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
   text-align: left;
   ${cardPopFeedback}
 `;
@@ -122,6 +130,13 @@ const CardTitle = styled.p`
   font-size: 13px;
   font-weight: 700;
   margin-bottom: 4px;
+`;
+
+const LikeButton = styled(IconButton)`
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 1;
 `;
 
 const CardVenue = styled.p`
@@ -172,6 +187,7 @@ const ScrollHintIcon = styled.button`
  */
 export function MonthlyPicksSection({ items }: MonthlyPicksSectionProps) {
   const navigate = useNavigate();
+  const { likedPerformanceIds, toggleLikedPerformance } = useAppState();
   const trackRef = useRef<HTMLDivElement>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
   const closeSheet = () => setSheetOpen(false);
@@ -203,25 +219,36 @@ export function MonthlyPicksSection({ items }: MonthlyPicksSectionProps) {
           {items.map((m) => {
             const target = resolveDetailTarget(m);
             const layoutId = `poster-monthlypicks-${target.id}`;
+            const isLiked = likedPerformanceIds.includes(target.id);
             return (
-              <CardWrap
-                key={m.id}
-                type="button"
-                onClick={() =>
-                  navigate(target.path, { state: { ...target.state, fromLayoutId: layoutId } })
-                }
-              >
-                <CardPosterMotionWrap layoutId={layoutId}>
-                  <CardPoster $theme={m.theme} imageUrl={m.imageUrl} alt={m.title} />
-                </CardPosterMotionWrap>
-                <CardBody>
-                  <CategoryPill $variant="pink">{m.category}</CategoryPill>
-                  <CardTitle>{m.title}</CardTitle>
-                  <CardVenue>
-                    <Icon name="pin" />
-                    {m.venue}
-                  </CardVenue>
-                </CardBody>
+              <CardWrap key={m.id}>
+                <PosterButton
+                  type="button"
+                  onClick={() =>
+                    navigate(target.path, { state: { ...target.state, fromLayoutId: layoutId } })
+                  }
+                >
+                  <CardPosterMotionWrap layoutId={layoutId}>
+                    <CardPoster $theme={m.theme} imageUrl={m.imageUrl} alt={m.title} />
+                  </CardPosterMotionWrap>
+                  <CardBody>
+                    <CategoryPill $variant="pink">{m.category}</CategoryPill>
+                    <CardTitle>{m.title}</CardTitle>
+                    <CardVenue>
+                      <Icon name="pin" />
+                      {m.venue}
+                    </CardVenue>
+                  </CardBody>
+                </PosterButton>
+                <LikeButton
+                  type="button"
+                  $float
+                  $active={isLiked}
+                  aria-label="찜하기"
+                  onClick={() => toggleLikedPerformance(target.id)}
+                >
+                  <Icon name="heart" filled={isLiked} />
+                </LikeButton>
               </CardWrap>
             );
           })}

@@ -8,7 +8,7 @@ import { RecommendCarousel } from "../../components/main/RecommendCarousel";
 import { BottomNav } from "../../components/common/BottomNav";
 import { Header } from "../../components/common/Header";
 import { useAppState } from "../../context/AppStateContext";
-import { artistNews as initialArtistNews, monthlyPicks, performances as initialPerformances } from "../../data";
+import { artistNews as initialArtistNews, monthlyPicks, performances } from "../../data";
 import { detailPath, ROUTES } from "../../router/routes";
 
 /** "NOLI가 찾은 맞춤 공연들"에는 취향 일치도 70% 이상인 공연만 추천한다 */
@@ -19,21 +19,17 @@ const Screen = styled.div`
 `;
 
 /**
- * org/js/main.js를 이식. 찜/알람 토글은 이 화면에 진입할 때마다
- * 데이터 모듈의 초기값으로 시작하는 로컬 state로 관리한다(화면 간 영속화는 범위 밖).
+ * org/js/main.js를 이식. 공연 찜(하트) 상태는 AppStateContext에서 전역으로 관리해
+ * 보관함 "저장한 공연" 목록에 반영되고, 아티스트 소식 찜은 이 화면 로컬 state로만 둔다.
  */
 export function MainPage() {
   const navigate = useNavigate();
-  const { userPreference } = useAppState();
-  const [performanceList, setPerformanceList] = useState(initialPerformances);
+  const { userPreference, likedPerformanceIds, toggleLikedPerformance } = useAppState();
   const [artistNewsList, setArtistNewsList] = useState(initialArtistNews);
 
+  const performanceList = performances.map((p) => ({ ...p, isLiked: likedPerformanceIds.includes(p.id) }));
   const hero = performanceList.find((p) => p.isHero);
   const recommended = performanceList.filter((p) => !p.isHero && p.matchRate >= MIN_RECOMMEND_MATCH_RATE);
-
-  const handleTogglePerformanceLike = (id: string) => {
-    setPerformanceList((prev) => prev.map((p) => (p.id === id ? { ...p, isLiked: !p.isLiked } : p)));
-  };
 
   const handleToggleArtistLike = (id: string) => {
     setArtistNewsList((prev) => prev.map((a) => (a.id === id ? { ...a, isLiked: !a.isLiked } : a)));
@@ -46,7 +42,7 @@ export function MainPage() {
         {hero && (
           <Hero
             performance={hero}
-            onToggleLike={handleTogglePerformanceLike}
+            onToggleLike={toggleLikedPerformance}
             onOpenDetail={(id) => navigate(detailPath(id))}
           />
         )}
@@ -54,6 +50,7 @@ export function MainPage() {
           userName={userPreference.userName}
           items={recommended}
           onOpenDetail={(id, fromLayoutId) => navigate(detailPath(id), { state: { fromLayoutId } })}
+          onToggleLike={toggleLikedPerformance}
           onRetakePreferences={() => navigate(ROUTES.favorite)}
         />
         <ArtistNewsList

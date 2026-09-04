@@ -11,6 +11,7 @@ export interface RecommendCarouselProps {
   userName: string;
   items: Performance[];
   onOpenDetail: (id: string, fromLayoutId: string) => void;
+  onToggleLike: (id: string) => void;
   onRetakePreferences: () => void;
 }
 
@@ -64,7 +65,7 @@ const Track = styled(ScrollX)`
   padding-right: var(--space-5);
 `;
 
-const CardWrap = styled.button`
+const CardWrap = styled.div`
   position: relative;
   flex: 0 0 auto;
   width: 158px;
@@ -73,13 +74,20 @@ const CardWrap = styled.button`
   overflow: hidden;
   box-shadow: var(--shadow-card);
   scroll-snap-align: start;
-  text-align: left;
-  ${cardPopFeedback}
 
   &:active,
   &:hover {
     box-shadow: var(--shadow-float);
   }
+`;
+
+const PosterButton = styled.button`
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  ${cardPopFeedback}
 `;
 
 /** DetailPage 히어로 포스터와 layoutId를 공유해 셰어드 엘리먼트 전환을 만든다 */
@@ -106,6 +114,13 @@ const CardBody = styled.div`
   color: var(--color-white);
 `;
 
+const LikeButton = styled(IconButton)`
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  z-index: 1;
+`;
+
 const CardTitle = styled.p`
   font-size: 15px;
   font-weight: 700;
@@ -116,7 +131,13 @@ const CardTitle = styled.p`
  * org/js/main.js의 renderRecommendCarousel 이식. 취향 일치 70% 이상인 공연을 최대 7개까지 가로 스크롤로 보여준다.
  * 우측 "계속" 아이콘을 누르면 트랙이 옆으로 슬라이드되어 다음 카드들을 보여준다(터치 드래그로도 스크롤 가능).
  */
-export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePreferences }: RecommendCarouselProps) {
+export function RecommendCarousel({
+  userName,
+  items,
+  onOpenDetail,
+  onToggleLike,
+  onRetakePreferences,
+}: RecommendCarouselProps) {
   const { openSearch } = useSearchOverlay();
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -150,14 +171,25 @@ export function RecommendCarousel({ userName, items, onOpenDetail, onRetakePrefe
           {visibleItems.map((p) => {
             const layoutId = `poster-carousel-${p.id}`;
             return (
-            <CardWrap key={p.id} type="button" onClick={() => onOpenDetail(p.id, layoutId)}>
-              <CardPosterMotionWrap layoutId={layoutId}>
-                <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
-              </CardPosterMotionWrap>
-              <CardBody>
-                <CardTitle>{p.title}</CardTitle>
-                <Pill $variant="purple">내 취향 일치 {p.matchRate}%</Pill>
-              </CardBody>
+            <CardWrap key={p.id}>
+              <PosterButton type="button" onClick={() => onOpenDetail(p.id, layoutId)}>
+                <CardPosterMotionWrap layoutId={layoutId}>
+                  <CardPoster $theme={p.theme} imageUrl={p.imageUrl} alt={p.title} />
+                </CardPosterMotionWrap>
+                <CardBody>
+                  <CardTitle>{p.title}</CardTitle>
+                  <Pill $variant="purple">내 취향 일치 {p.matchRate}%</Pill>
+                </CardBody>
+              </PosterButton>
+              <LikeButton
+                type="button"
+                $float
+                $active={p.isLiked}
+                aria-label="찜하기"
+                onClick={() => onToggleLike(p.id)}
+              >
+                <Icon name="heart" filled={p.isLiked} />
+              </LikeButton>
             </CardWrap>
             );
           })}

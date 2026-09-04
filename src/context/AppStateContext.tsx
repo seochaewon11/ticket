@@ -18,6 +18,9 @@ interface AppStateValue {
   updatePreference: (patch: Partial<UserPreference>) => void;
   /** 취향설정 마지막 단계 완료 처리 */
   completeFavorite: () => void;
+  /** 찜한 공연(performance) id 목록. 하트 버튼을 누르면 보관함 "저장한 공연"에 반영된다 */
+  likedPerformanceIds: string[];
+  toggleLikedPerformance: (id: string) => void;
 }
 
 const AppStateContext = createContext<AppStateValue | null>(null);
@@ -25,6 +28,7 @@ const AppStateContext = createContext<AppStateValue | null>(null);
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session>(initialSession);
   const [userPreference, setUserPreference] = useState<UserPreference>(initialUserPreference);
+  const [likedPerformanceIds, setLikedPerformanceIds] = useState<string[]>([]);
 
   const value = useMemo<AppStateValue>(
     () => ({
@@ -35,8 +39,11 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       updatePreference: (patch) => setUserPreference((prev) => ({ ...prev, ...patch })),
       completeFavorite: () =>
         setUserPreference((prev) => ({ ...prev, completed: true, step: prev.totalSteps })),
+      likedPerformanceIds,
+      toggleLikedPerformance: (id) =>
+        setLikedPerformanceIds((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id])),
     }),
-    [session, userPreference],
+    [session, userPreference, likedPerformanceIds],
   );
 
   return <AppStateContext.Provider value={value}>{children}</AppStateContext.Provider>;
