@@ -1,9 +1,11 @@
 import mainImage1 from "../assets/performances/main_1.png";
 import mainImage2 from "../assets/performances/main_2.png";
+import mainImage3 from "../assets/performances/main_3.png";
 import mainImage4 from "../assets/performances/main_4.png";
 import mainImage5 from "../assets/performances/main_5.png";
 import mainImage6 from "../assets/performances/main_6.png";
 import mainImage7 from "../assets/performances/main_7.png";
+import mainImage8 from "../assets/performances/main_8.png";
 import mainImage9 from "../assets/performances/main_9.png";
 import castImage1 from "../assets/cast/main_in1.png";
 import castImage2 from "../assets/cast/main_in2.png";
@@ -215,5 +217,181 @@ export const performances: Performance[] = [
     priceRange: "VIP 176,000원 ~ 일반 154,000원",
     synopsis:
       "솔로 데뷔 10주년을 맞은 태연이 국내외 투어로 큰 사랑을 받은 콘서트 'The TENSE'의 감동을 서울 팬들에게 다시 전한다. 사랑과 자유, 위로를 노래하는 태연 특유의 감성 보컬을 올림픽공원 체조경기장 라이브로 만날 수 있는 무대.",
+  },
+  {
+    id: "dracula",
+    title: "드라큘라",
+    category: "musical",
+    theme: "dracula",
+    imageUrl: mainImage3,
+    dateRange: "2026.10.28",
+    venue: "샤롯데씨어터",
+    matchRate: 85,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>고딕 로맨스</em>와 <em>애절한 사랑 이야기</em>를 즐기시는군요! 드라큘라는 400년을 넘나드는 운명적 사랑을 짙은 무대 미학으로 그려낼 거예요.",
+    genrePreferenceText: "고딕 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,720명 찜",
+    period: "2026.07.10 ~ (LG아트센터 서울 LG SIGNATURE 홀)",
+    runningTime: "150분 (인터미션 20분 포함)",
+    priceRange: "VIP 170,000원 ~ R석 100,000원",
+    synopsis:
+      "브램 스토커의 원작을 바탕으로 400년 넘게 단 한 여인을 향한 드라큘라 백작의 사랑을 애절하게 그린 고딕 로맨스 뮤지컬. 드라큘라와 미나를 중심으로 반 헬싱, 조나단, 루시가 얽히며 만들어내는 관계의 긴장과 대비가 극을 이끈다.",
+    castList: [
+      { name: "신성록", role: "드라큘라 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "김준수", role: "드라큘라 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "조정은", role: "미나 역", theme: "artist-1", imageUrl: castImage1 },
+    ],
+  },
+  {
+    id: "orchestra-seoul-phil",
+    title: "서울시립교향악단 정기공연",
+    category: "classical",
+    theme: "orchestra",
+    imageUrl: mainImage2,
+    dateRange: "2026.10.25",
+    venue: "예술의전당 콘서트홀",
+    matchRate: 78,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>클래식 명곡</em>과 <em>오케스트라 라이브</em>를 즐기시는군요! 서울시향의 정기 공연은 낭만주의 레퍼토리로 깊은 울림을 선사할 거예요.",
+    genrePreferenceText: "클래식 공연 카테고리 2위",
+    trendingText: "최근 24시간 내 520명 찜",
+    period: "2026.10.25 (단회 공연)",
+    runningTime: "110분 (인터미션 20분 포함)",
+    priceRange: "R석 90,000원 ~ C석 20,000원",
+    synopsis:
+      "얍 판 츠베덴 음악감독이 이끄는 서울시립교향악단의 정기 공연으로, 클래식 명곡과 낭만주의 레퍼토리를 중심으로 구성된다. 요한 슈트라우스 서곡과 왈츠, 모차르트 협주곡, 베토벤 교향곡 등 대중적이면서도 깊이 있는 프로그램으로 예술의전당 콘서트홀을 가득 채운다.",
+    castList: [
+      { name: "얍 판 츠베덴", role: "지휘", theme: "artist-1", imageUrl: castImage1 },
+      { name: "서울시립교향악단", role: "협연", theme: "artist-2", imageUrl: castImage2 },
+    ],
+  },
+  {
+    id: "bts-daejeon",
+    title: "BTS 대전콘서트",
+    category: "concert",
+    theme: "bts",
+    imageUrl: mainImage8,
+    dateRange: "2026.10.25",
+    venue: "예술의전당 콘서트홀",
+    matchRate: 96,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>월드 투어 콘서트</em>와 <em>퍼포먼스</em>를 즐기시는군요! BTS의 라이브 무대는 압도적인 규모와 감동을 함께 선사할 거예요.",
+    genrePreferenceText: "콘서트 카테고리 1위",
+    trendingText: "최근 24시간 내 5,120명 찜",
+    period: "2026.10.25 (단회 공연)",
+    runningTime: "150분 (인터미션 없음)",
+    priceRange: "VIP 220,000원 ~ 일반 132,000원",
+    synopsis:
+      "병역 의무를 마친 방탄소년단이 라이브 무대로 복귀하는 월드투어 '아리랑(ARIRANG)'의 일환으로, 360도 무대에서 신보 'Chapter V: Rebirth'의 감동을 전한다. 밀양 아리랑·군밤타령 등 우리 가락을 접목한 연출로 새로운 컴백 스토리를 완성한다.",
+  },
+  {
+    id: "phantom-opera",
+    title: "오페라의 유령",
+    category: "musical",
+    theme: "phantom",
+    imageUrl: mainImage2,
+    dateRange: "2026.10.30",
+    venue: "블루스퀘어 신한카드홀",
+    matchRate: 89,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>고전 로맨스</em>와 <em>웅장한 오케스트레이션</em>을 즐기시는군요! 오페라의 유령은 화려한 샹들리에 연출로 압도적인 감동을 선사할 거예요.",
+    genrePreferenceText: "클래식 뮤지컬 카테고리 2위",
+    trendingText: "최근 24시간 내 2,340명 찜",
+    period: "2026.10.30 (내한/라이선스 공연)",
+    runningTime: "160분 (인터미션 20분 포함)",
+    priceRange: "VIP 180,000원 ~ R석 110,000원",
+    synopsis:
+      "파리 오페라극장을 배경으로, 천사의 목소리를 지녔지만 기형적인 얼굴을 가면으로 가린 유령이 프리마돈나 크리스틴을 향한 짝사랑에 빠지며 벌어지는 비극적 로맨스. 앤드루 로이드 웨버의 대표곡들과 화려한 샹들리에 연출로 한국에서만 4번째 시즌을 맞았다.",
+    castList: [
+      { name: "박효신", role: "유령 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "카이", role: "유령 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "전동석", role: "라울 역", theme: "artist-1", imageUrl: castImage1 },
+    ],
+  },
+  {
+    id: "rebecca",
+    title: "레베카",
+    category: "musical",
+    theme: "rebecca",
+    imageUrl: mainImage3,
+    dateRange: "2026.11.02",
+    venue: "예술의전당 오페라극장",
+    matchRate: 84,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>심리 서스펜스</em>와 <em>고전 소설 원작</em>을 즐기시는군요! 레베카는 팽팽한 심리 묘사로 짜릿한 몰입감을 선사할 거예요.",
+    genrePreferenceText: "서스펜스 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,180명 찜",
+    period: "2026.11.02 ~ (충무아트센터 대극장)",
+    runningTime: "160분 (인터미션 20분 포함)",
+    priceRange: "VIP 170,000원 ~ R석 100,000원",
+    synopsis:
+      "이름 없는 '나'가 부유한 막심 드 윈터와 결혼해 맨덜리 저택에 들어서지만, 죽은 전처 레베카의 그림자와 집사 댄버스 부인의 집착에 시달리며 서서히 파국으로 치닫는 심리 서스펜스 뮤지컬. 대프니 듀 모리에의 고전 소설을 원작으로 한 EMK 뮤지컬컴퍼니의 대표작이다.",
+    castList: [
+      { name: "신영숙", role: "댄버스 부인 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "박은태", role: "막심 드 윈터 역", theme: "artist-2", imageUrl: castImage2 },
+    ],
+  },
+  {
+    id: "frankenstein",
+    title: "프랑켄슈타인",
+    category: "musical",
+    theme: "frankenstein",
+    imageUrl: mainImage2,
+    dateRange: "2026.11.05",
+    venue: "충무아트센터",
+    matchRate: 87,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>창조와 파괴의 서사</em>와 <em>1인 2역 연기</em>를 즐기시는군요! 프랑켄슈타인은 빅터와 괴물의 이중적 서사로 강렬한 몰입감을 선사할 거예요.",
+    genrePreferenceText: "오리지널 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,940명 찜",
+    period: "2026.06.05 ~ 08.25 (블루스퀘어 신한카드홀)",
+    runningTime: "170분 (인터미션 20분 포함)",
+    priceRange: "VIP 170,000원 ~ R석 90,000원",
+    synopsis:
+      "나폴레옹 전쟁의 참혹한 전장에서 시작된 과학자 빅터 프랑켄슈타인의 실험은 새로운 생명을 탄생시키지만, 피조물의 실종으로 파국을 맞는다. 3년 뒤 괴물이 되어 돌아온 피조물은 창조주에게 복수를 다짐하고, 창조와 파괴를 오가는 빅터와 괴물의 이중적 서사가 몰입감 있게 펼쳐진다.",
+    castList: [
+      { name: "박은태", role: "빅터 프랑켄슈타인 / 앙리 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "신성록", role: "빅터 프랑켄슈타인 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "이지혜", role: "줄리아 역", theme: "artist-1", imageUrl: castImage1 },
+    ],
+  },
+  {
+    // 실존하는 공연 정보를 찾지 못해(가상의 전시), 사용자 요청에 따라 엘리자벳의 상세정보를 그대로 재사용한다.
+    id: "magic-forest",
+    title: "매직 포레스트: 빛의 정원",
+    category: "exhibition",
+    theme: "magic-forest",
+    imageUrl: mainImage3,
+    dateRange: "2026.11.15",
+    venue: "DDP 배움터",
+    matchRate: 82,
+    isLiked: false,
+    isHero: false,
+    matchReasonHtml:
+      "평소 <em>유럽 황실 서사</em>와 <em>클래식한 넘버</em>를 즐기시는군요! 엘리자벳은 자유를 갈망한 황후와 죽음의 애절한 이야기로 깊은 여운을 남길 거예요.",
+    genrePreferenceText: "클래식 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,560명 찜",
+    period: "2026.10.01 ~ 11.20",
+    runningTime: "170분 (인터미션 20분 포함)",
+    priceRange: "VIP 170,000원 ~ R석 80,000원",
+    synopsis:
+      "자유를 갈망했던 오스트리아 황후 엘리자벳과, 운명처럼 그녀 곁을 맴도는 '죽음(Der Tod)'의 이야기. 화려한 황실 뒤에 감춰진 고독 속에서 엘리자벳을 암살한 루케니는 100년째 이어지는 재판에서 그녀가 죽음을 두려워한 것이 아니라 스스로 죽음을 사랑했을 뿐이라고 항변한다.",
+    castList: [
+      { name: "린아", role: "엘리자벳 역", theme: "artist-1", imageUrl: castImage1 },
+      { name: "카이", role: "죽음(Der Tod) 역", theme: "artist-2", imageUrl: castImage2 },
+      { name: "이지혜", role: "엘리자벳 역(더블캐스트)", theme: "artist-1", imageUrl: castImage1 },
+    ],
   },
 ];
