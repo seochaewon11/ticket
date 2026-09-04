@@ -13,6 +13,7 @@ import { ProfilePage } from "./pages/ProfilePage";
 import { ReportPage } from "./pages/ReportPage";
 import { SplashPage } from "./pages/SplashPage";
 import { StoragePage } from "./pages/StoragePage";
+import { UpcomingPage } from "./pages/UpcomingPage";
 import { ROUTES } from "./router/routes";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                 <Route path={ROUTES.main} element={<MainPage />} />
                 <Route path={ROUTES.detail} element={<DetailPage />} />
                 <Route path={ROUTES.calendar} element={<CalendarPage />} />
+                <Route path={ROUTES.upcoming} element={<UpcomingPage />} />
                 <Route path={ROUTES.alarm} element={<AlarmPage />} />
                 <Route path={ROUTES.alarmDetail} element={<AlarmPage />} />
                 <Route path={ROUTES.storage} element={<StoragePage />} />

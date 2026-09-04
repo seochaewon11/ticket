@@ -6,6 +6,7 @@ export const ROUTES = {
   main: "/main",
   detail: "/detail/:performanceId",
   calendar: "/calendar",
+  upcoming: "/calendar/upcoming",
   alarm: "/alarm",
   alarmDetail: "/alarm/:performanceId",
   storage: "/storage",
