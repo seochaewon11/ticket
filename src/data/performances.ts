@@ -1,4 +1,4 @@
-import wickedHqImage from "../assets/performances/wicked_hq.jpg";
+import mainImage1 from "../assets/performances/main_1.png";
 import marieHqImage from "../assets/performances/marie_hq.jpg";
 import beetlejuiceHqImage from "../assets/performances/beetlejuice_hq.jpg";
 import deathnoteHqImage from "../assets/performances/deathnote_hq.jpg";
@@ -19,7 +19,7 @@ export const performances: Performance[] = [
     title: "위키드(Wicked)",
     category: "musical",
     theme: "wicked",
-    imageUrl: wickedHqImage,
+    imageUrl: mainImage1,
     rating: 4.8,
     duration: "2h 14m",
     dateRange: "2026.08.08-10.20",
