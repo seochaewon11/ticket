@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import logoImage from "../../assets/brand/logo.png";
 import { Icon } from "../../components/common/Icon";
+import { NoliLogo } from "../../components/common/NoliLogo";
 import { useAppState } from "../../context/AppStateContext";
 import { ROUTES } from "../../router/routes";
 
@@ -108,7 +108,7 @@ const LogoWrap = styled.div`
   max-width: 220px;
   margin: 0 auto 14px;
 
-  img {
+  svg {
     width: 100%;
     height: auto;
     display: block;
@@ -226,7 +226,7 @@ export function LoginPage() {
       <Body $disabled={isLoading}>
         <Brand>
           <LogoWrap>
-            <img src={logoImage} alt="NOLI" />
+            <NoliLogo />
           </LogoWrap>
           <Tagline>일상에 문화를 더하다, NOLI</Tagline>
         </Brand>
