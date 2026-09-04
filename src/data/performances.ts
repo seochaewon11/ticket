@@ -52,6 +52,20 @@ export const performances: Performance[] = [
     matchRate: 90,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>실존 인물 소재</em>와 <em>여성 서사</em>를 즐기시는군요! 마리 퀴리는 노벨상을 두 번 수상한 위대한 과학자의 삶을 감동적으로 그려낼 거예요.",
+    genrePreferenceText: "실화 기반 뮤지컬 카테고리 2위",
+    trendingText: "최근 24시간 내 1,340명 찜",
+    period: "2024.06.01 ~ 07.28",
+    runningTime: "150분 (인터미션 20분 포함)",
+    priceRange: "VIP £65 ~ 일반석 £25",
+    synopsis:
+      "가난한 폴란드 소녀 마리는 과학자의 꿈을 품고 파리 소르본 대학교에 입학한다. 피에르 퀴리와 함께 새로운 원소 라듐을 발견해 노벨상을 거머쥐지만, 라듐이 지닌 치유의 빛과 공장 노동자들을 병들게 하는 어두운 이면을 동시에 마주하며 깊은 도덕적 딜레마에 빠진다.",
+    castList: [
+      { name: "Ailsa Davidson", role: "Marie Curie 역", theme: "" },
+      { name: "Thomas Josling", role: "Pierre Curie 역", theme: "" },
+      { name: "Chrissie Bhima", role: "Anne Kowalska 역", theme: "" },
+    ],
   },
   {
     id: "beetlejuice",
@@ -64,6 +78,20 @@ export const performances: Performance[] = [
     matchRate: 80,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>다크 코미디</em>와 <em>화려한 무대 연출</em>을 즐기시는군요! 비틀쥬스는 기묘하고 유쾌한 유령들의 소동으로 색다른 재미를 선사할 거예요.",
+    genrePreferenceText: "코미디 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,890명 찜",
+    period: "2026.01.01 ~ 12.31 (브로드웨이 마르퀴스 씨어터 상시 공연)",
+    runningTime: "150분 (인터미션 20분 포함)",
+    priceRange: "VIP $199 ~ 일반 $79",
+    synopsis:
+      "괴짜 소녀 리디아 디츠는 최근 세상을 떠난 다정한 부부 바바라와 아담을 만나며 유령의 세계에 발을 들인다. 살아있는 사람들을 쫓아내려는 두 유령 앞에 줄무늬 옷을 입은 사기꾼 유령 비틀쥬스가 나타나고, 엑소시즘과 위장 결혼, 무대를 가득 채우는 거대한 샌드웜까지 등장하는 유쾌하고 기묘한 소동이 펼쳐진다.",
+    castList: [
+      { name: "Justin Collette", role: "Beetlejuice 역", theme: "" },
+      { name: "Isabella Esler", role: "Lydia Deetz 역", theme: "" },
+      { name: "Megan McGinnis", role: "Barbara 역", theme: "" },
+    ],
   },
   {
     id: "deathnote",
@@ -76,6 +104,20 @@ export const performances: Performance[] = [
     matchRate: 88,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>심리 스릴러</em>와 <em>두뇌 싸움</em> 서사를 즐기시는군요! 데스노트는 라이토와 엘의 팽팽한 심리전으로 손에 땀을 쥐게 할 거예요.",
+    genrePreferenceText: "스릴러 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 2,120명 찜",
+    period: "2026.09.10 ~ 11.02",
+    runningTime: "160분 (인터미션 20분 포함)",
+    priceRange: "VIP 140,000원 ~ R석 60,000원",
+    synopsis:
+      "법과 정의를 고민하던 천재 고등학생 야가미 라이토는 우연히 손에 넣은 데스노트로 세상을 바꿀 힘을 얻는다. 이름이 적히면 죽는다는 노트의 비밀을 깨달은 라이토는 스스로 정의의 심판자 '키라'가 되어 범죄자들을 처단하기 시작하고, 그를 쫓는 천재 탐정 엘과의 숨 막히는 두뇌싸움이 펼쳐진다.",
+    castList: [
+      { name: "홍광호", role: "야가미 라이토 역", theme: "" },
+      { name: "김준수", role: "엘(L) 역", theme: "" },
+      { name: "강홍석", role: "류크 역", theme: "" },
+    ],
   },
   {
     id: "chicago-musical",
@@ -88,6 +130,20 @@ export const performances: Performance[] = [
     matchRate: 76,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>재즈 넘버</em>와 <em>화려한 군무</em>를 즐기시는군요! 시카고는 벨마와 록시의 매혹적인 무대로 짜릿한 즐거움을 선사할 거예요.",
+    genrePreferenceText: "재즈 뮤지컬 카테고리 2위",
+    trendingText: "최근 24시간 내 980명 찜",
+    period: "2026.09.15 ~ 10.30",
+    runningTime: "150분 (인터미션 20분 포함)",
+    priceRange: "VIP 160,000원 ~ R석 70,000원",
+    synopsis:
+      "1920년대 재즈 시대의 시카고, 내연남을 살해한 록시 하트는 남편을 속여 위기를 모면하려 하지만 결국 진실이 드러나 체포된다. 시카고 최고의 스타 변호사 빌리 플린을 만난 록시는 언론 플레이 끝에 무죄를 선고받고, 라이벌이었던 벨마 켈리와 손잡고 화려한 보드빌 스타로 거듭난다.",
+    castList: [
+      { name: "정선아", role: "벨마 켈리 역", theme: "" },
+      { name: "아이비", role: "록시 하트 역", theme: "" },
+      { name: "최재림", role: "빌리 플린 역", theme: "" },
+    ],
   },
   {
     id: "elizabeth-musical",
@@ -100,6 +156,20 @@ export const performances: Performance[] = [
     matchRate: 82,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>유럽 황실 서사</em>와 <em>클래식한 넘버</em>를 즐기시는군요! 엘리자벳은 자유를 갈망한 황후와 죽음의 애절한 이야기로 깊은 여운을 남길 거예요.",
+    genrePreferenceText: "클래식 뮤지컬 카테고리 1위",
+    trendingText: "최근 24시간 내 1,560명 찜",
+    period: "2026.10.01 ~ 11.20",
+    runningTime: "170분 (인터미션 20분 포함)",
+    priceRange: "VIP 170,000원 ~ R석 80,000원",
+    synopsis:
+      "자유를 갈망했던 오스트리아 황후 엘리자벳과, 운명처럼 그녀 곁을 맴도는 '죽음(Der Tod)'의 이야기. 화려한 황실 뒤에 감춰진 고독 속에서 엘리자벳을 암살한 루케니는 100년째 이어지는 재판에서 그녀가 죽음을 두려워한 것이 아니라 스스로 죽음을 사랑했을 뿐이라고 항변한다.",
+    castList: [
+      { name: "린아", role: "엘리자벳 역", theme: "" },
+      { name: "카이", role: "죽음(Der Tod) 역", theme: "" },
+      { name: "이지혜", role: "엘리자벳 역(더블캐스트)", theme: "" },
+    ],
   },
   {
     id: "ppallae",
@@ -112,6 +182,18 @@ export const performances: Performance[] = [
     matchRate: 73,
     isLiked: false,
     isHero: false,
+    matchReasonHtml: "평소 <em>따뜻한 휴먼 드라마</em>를 즐기시는군요! 빨래는 서울 달동네 이웃들의 소소하고 정겨운 이야기로 마음을 데워줄 거예요.",
+    genrePreferenceText: "소극장 뮤지컬 카테고리 3위",
+    trendingText: "최근 24시간 내 410명 찜",
+    period: "2026.09.05 ~ 10.12",
+    runningTime: "100분 (인터미션 없음)",
+    priceRange: "R석 66,000원 ~ S석 55,000원",
+    synopsis:
+      "강원도에서 상경해 서울 달동네에 정착한 27살 나영은 몽골 청년 솔롱고를 옥상 빨랫줄에서 만나며 조금씩 가까워진다. 부당한 해고 위기에 맞서는 나영과 이방인으로 살아가는 솔롱고, 그리고 이웃들의 소소하고 따뜻한 이야기가 정겹게 펼쳐지는 소극장 뮤지컬.",
+    castList: [
+      { name: "서은지", role: "나영 역", theme: "" },
+      { name: "노희찬", role: "솔롱고 역", theme: "" },
+    ],
   },
   {
     id: "taeyeon-concert",
@@ -124,5 +206,14 @@ export const performances: Performance[] = [
     matchRate: 91,
     isLiked: false,
     isHero: false,
+    matchReasonHtml:
+      "평소 <em>감성 발라드</em>와 <em>솔로 아티스트 공연</em>을 즐기시는군요! 태연의 라이브 보컬이 위로와 감동을 선사할 거예요.",
+    genrePreferenceText: "콘서트 카테고리 1위",
+    trendingText: "최근 24시간 내 3,240명 찜",
+    period: "2026.11.08 ~ 11.09",
+    runningTime: "150분 (인터미션 없음)",
+    priceRange: "VIP 176,000원 ~ 일반 154,000원",
+    synopsis:
+      "솔로 데뷔 10주년을 맞은 태연이 국내외 투어로 큰 사랑을 받은 콘서트 'The TENSE'의 감동을 서울 팬들에게 다시 전한다. 사랑과 자유, 위로를 노래하는 태연 특유의 감성 보컬을 올림픽공원 체조경기장 라이브로 만날 수 있는 무대.",
   },
 ];
