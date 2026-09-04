@@ -75,7 +75,7 @@ export function CalendarPage() {
 
         <AlarmList
           items={ticketAlarms}
-          onMoreClick={() => navigate(ROUTES.alarm)}
+          onMoreClick={() => navigate(ROUTES.ticketAlarms)}
           onAlarmClick={(id) => navigate(alarmPath(id))}
         />
         <UpcomingList items={upcomingShows} onMoreClick={() => navigate(ROUTES.upcoming)} />

@@ -7,6 +7,7 @@ export const ROUTES = {
   detail: "/detail/:performanceId",
   calendar: "/calendar",
   upcoming: "/calendar/upcoming",
+  ticketAlarms: "/calendar/alarms",
   alarm: "/alarm",
   alarmDetail: "/alarm/:performanceId",
   storage: "/storage",
