@@ -1,9 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BottomNav } from "../../components/common/BottomNav";
 import { Header } from "../../components/common/Header";
 import { StorageGrid } from "../../components/storage/StorageGrid";
 import { useAppState } from "../../context/AppStateContext";
 import { recentlyViewed, savedShows } from "../../data";
+import { detailPath } from "../../router/routes";
 
 const Screen = styled.div`
   padding: var(--space-5);
@@ -31,6 +33,9 @@ const SectionTitle = styled.h2`
 /** org/js/storage.js를 이식 (저장한 공연 / 최근 본 공연 3열 그리드) */
 export function StoragePage() {
   const { userPreference } = useAppState();
+  const navigate = useNavigate();
+
+  const openDetail = (id: string, fromLayoutId: string) => navigate(detailPath(id), { state: { fromLayoutId } });
 
   return (
     <>
@@ -38,10 +43,10 @@ export function StoragePage() {
       <Screen>
         <Title>나의 공연 보관함</Title>
         <Subtitle>{userPreference.userGreetingName}님의 보고 싶은 무대들을 저장했어요</Subtitle>
-        <StorageGrid items={savedShows} showHeart />
+        <StorageGrid items={savedShows} showHeart onOpenDetail={openDetail} />
 
         <SectionTitle>최근 본 공연</SectionTitle>
-        <StorageGrid items={recentlyViewed} />
+        <StorageGrid items={recentlyViewed} onOpenDetail={openDetail} />
       </Screen>
       <BottomNav active="storage" />
     </>

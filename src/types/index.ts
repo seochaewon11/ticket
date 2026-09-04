@@ -53,6 +53,8 @@ export interface CastMember {
   role: string;
   /** 원본 데이터에 theme이 빈 문자열인 출연진이 존재(포스터 없음) */
   theme: PosterTheme | "";
+  /** 실제 프로필 사진이 있는 경우에만 존재 (없으면 theme 그라디언트로 대체) */
+  imageUrl?: string;
 }
 
 /**

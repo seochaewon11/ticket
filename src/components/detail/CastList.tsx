@@ -61,7 +61,9 @@ export function CastList({ cast }: CastListProps) {
       <Scroll>
         {cast.map((c, index) => (
           <Item key={`${c.name}-${index}`}>
-            <Avatar>{c.theme && <PosterPlaceholder $theme={c.theme} alt={c.name} />}</Avatar>
+            <Avatar>
+              {c.theme && <PosterPlaceholder $theme={c.theme} imageUrl={c.imageUrl} alt={c.name} />}
+            </Avatar>
             <Name>{c.name}</Name>
             <Role>{c.role}</Role>
           </Item>

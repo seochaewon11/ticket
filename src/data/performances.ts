@@ -6,6 +6,8 @@ import mainImage5 from "../assets/performances/main_5.png";
 import mainImage6 from "../assets/performances/main_6.png";
 import mainImage7 from "../assets/performances/main_7.png";
 import mainImage9 from "../assets/performances/main_9.png";
+import castImage1 from "../assets/cast/main_in1.png";
+import castImage2 from "../assets/cast/main_in2.png";
 import type { Performance } from "../types";
 
 /** 메인 화면 - 히어로 및 맞춤 추천 공연 데이터 (상세화면 전용 필드 포함) */
@@ -35,8 +37,8 @@ export const performances: Performance[] = [
     synopsis:
       "도로시가 오즈에 떨어지기 훨씬 전, 그곳에서 만난 두 소녀의 이야기. 똑똑하지만 불같은 성격에 초록색 피부를 가진 엘파바와 야망 가득하고 모두에게 사랑받는 글린다. 전혀 다른 두 마녀가 나누는 진한 우정과 운명적인 선택이 시작됩니다. 글린다는 노래를 부르며 하늘로 떠난 엘파바를 그리워하고, 둘의 이야기는 오즈의 전설이 됩니다.",
     castList: [
-      { name: "옥주현", role: "엘파바 역", theme: "artist-6" },
-      { name: "정선아", role: "글린다 역", theme: "artist-7" },
+      { name: "옥주현", role: "엘파바 역", theme: "artist-6", imageUrl: castImage1 },
+      { name: "정선아", role: "글린다 역", theme: "artist-7", imageUrl: castImage2 },
       { name: "고은성", role: "피에로 역", theme: "" },
     ],
   },

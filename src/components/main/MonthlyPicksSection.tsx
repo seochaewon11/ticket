@@ -29,14 +29,12 @@ function resolveDetailTarget(pick: MonthlyPick) {
     title: pick.title,
     category: pick.category,
     theme: pick.theme,
+    imageUrl: pick.imageUrl,
     dateRange: pick.date,
     venue: pick.venue,
     matchRate: 0,
     isLiked: false,
     isHero: false,
-    // imageUrl은 넘기지 않는다: monthlyPicks의 이미지는 여러 항목이 재사용하는
-    // 목업 이미지라 실제 제목과 맞지 않을 수 있어, 큰 히어로에서는 안전하게
-    // theme 그라디언트로 대체한다.
   };
   return { id: pick.id, path: detailPath(pick.id), state: { performance: quickView } };
 }
