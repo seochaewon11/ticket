@@ -74,10 +74,6 @@ export interface Performance {
   isHero: boolean;
   /** 실제 포스터 사진이 있는 경우에만 존재 (없으면 theme 그라디언트로 대체) */
   imageUrl?: string;
-  /** 취향설정의 categoryOptions.id 참조 — 메인 화면 맞춤 추천 계산에 쓰인다 */
-  categoryId?: string;
-  /** 취향설정의 moodOptions.id 참조 — 메인 화면 맞춤 추천 계산에 쓰인다 */
-  moodIds?: string[];
 
   // 상세화면 전용 필드 (일부 공연만 존재)
   rating?: number;
