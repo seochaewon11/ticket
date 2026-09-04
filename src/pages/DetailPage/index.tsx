@@ -11,7 +11,6 @@ import { MatchCard } from "../../components/detail/MatchCard";
 import { Synopsis } from "../../components/detail/Synopsis";
 import { useAppState } from "../../context/AppStateContext";
 import { performances } from "../../data";
-import { ROUTES } from "../../router/routes";
 import type { Performance } from "../../types";
 
 const Screen = styled.div`
@@ -132,7 +131,7 @@ function DetailPageContent({
 
   return (
     <>
-      <Header back onBack={() => navigate(ROUTES.main)} />
+      <Header back onBack={() => navigate(-1)} />
       <Screen>
         <HeroMedia>
           <HeroPosterMotionWrap layoutId={fromLayoutId}>

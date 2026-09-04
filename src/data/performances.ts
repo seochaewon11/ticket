@@ -1,12 +1,13 @@
-import mainImage1 from "../assets/performances/main_1.png";
-import mainImage2 from "../assets/performances/main_2.png";
-import mainImage3 from "../assets/performances/main_3.png";
-import mainImage4 from "../assets/performances/main_4.png";
-import mainImage5 from "../assets/performances/main_5.png";
-import mainImage6 from "../assets/performances/main_6.png";
-import mainImage7 from "../assets/performances/main_7.png";
-import mainImage8 from "../assets/performances/main_8.png";
-import mainImage9 from "../assets/performances/main_9.png";
+import wickedHqImage from "../assets/performances/wicked_hq.jpg";
+import marieHqImage from "../assets/performances/marie_hq.jpg";
+import beetlejuiceHqImage from "../assets/performances/beetlejuice_hq.jpg";
+import deathnoteHqImage from "../assets/performances/deathnote_hq.jpg";
+import chicagoHqImage from "../assets/performances/chicago_hq.jpg";
+import operaHqImage from "../assets/performances/opera_hq.jpg";
+import ppallaeHqImage from "../assets/performances/ppallae_hq.jpg";
+import concertHqImage from "../assets/performances/concert_hq.jpg";
+import gothicHqImage from "../assets/performances/gothic_hq.jpg";
+import forestHqImage from "../assets/performances/forest_hq.jpg";
 import castImage1 from "../assets/cast/main_in1.png";
 import castImage2 from "../assets/cast/main_in2.png";
 import type { Performance } from "../types";
@@ -18,7 +19,7 @@ export const performances: Performance[] = [
     title: "위키드(Wicked)",
     category: "musical",
     theme: "wicked",
-    imageUrl: mainImage1,
+    imageUrl: wickedHqImage,
     rating: 4.8,
     duration: "2h 14m",
     dateRange: "2026.08.08-10.20",
@@ -48,7 +49,7 @@ export const performances: Performance[] = [
     title: "마리 퀴리",
     category: "musical",
     theme: "marie-curie",
-    imageUrl: mainImage2,
+    imageUrl: marieHqImage,
     dateRange: "JUNE - 28 JULY 2024",
     venue: "CHARING CROSS THEATRE",
     matchRate: 90,
@@ -74,7 +75,7 @@ export const performances: Performance[] = [
     title: "비틀쥬스",
     category: "musical",
     theme: "beetlejuice",
-    imageUrl: mainImage2,
+    imageUrl: beetlejuiceHqImage,
     dateRange: "",
     venue: "",
     matchRate: 80,
@@ -100,7 +101,7 @@ export const performances: Performance[] = [
     title: "데스노트",
     category: "musical",
     theme: "deathnote",
-    imageUrl: mainImage4,
+    imageUrl: deathnoteHqImage,
     dateRange: "2026.09.10-11.02",
     venue: "충무아트센터",
     matchRate: 88,
@@ -126,7 +127,7 @@ export const performances: Performance[] = [
     title: "시카고",
     category: "musical",
     theme: "chicago",
-    imageUrl: mainImage5,
+    imageUrl: chicagoHqImage,
     dateRange: "2026.09.15-10.30",
     venue: "LG아트센터 서울",
     matchRate: 76,
@@ -152,7 +153,7 @@ export const performances: Performance[] = [
     title: "엘리자벳",
     category: "musical",
     theme: "elizabeth",
-    imageUrl: mainImage6,
+    imageUrl: operaHqImage,
     dateRange: "2026.10.01-11.20",
     venue: "세종문화회관 대극장",
     matchRate: 82,
@@ -178,7 +179,7 @@ export const performances: Performance[] = [
     title: "빨래",
     category: "musical",
     theme: "ppallae",
-    imageUrl: mainImage7,
+    imageUrl: ppallaeHqImage,
     dateRange: "2026.09.05-10.12",
     venue: "동양예술극장",
     matchRate: 73,
@@ -202,7 +203,7 @@ export const performances: Performance[] = [
     title: "태연 콘서트",
     category: "concert",
     theme: "taeyeon",
-    imageUrl: mainImage9,
+    imageUrl: concertHqImage,
     dateRange: "2026.11.08-11.09",
     venue: "올림픽공원 체조경기장",
     matchRate: 91,
@@ -223,7 +224,7 @@ export const performances: Performance[] = [
     title: "드라큘라",
     category: "musical",
     theme: "dracula",
-    imageUrl: mainImage3,
+    imageUrl: gothicHqImage,
     dateRange: "2026.10.28",
     venue: "샤롯데씨어터",
     matchRate: 85,
@@ -249,7 +250,7 @@ export const performances: Performance[] = [
     title: "서울시립교향악단 정기공연",
     category: "classical",
     theme: "orchestra",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     dateRange: "2026.10.25",
     venue: "예술의전당 콘서트홀",
     matchRate: 78,
@@ -274,7 +275,7 @@ export const performances: Performance[] = [
     title: "BTS 대전콘서트",
     category: "concert",
     theme: "bts",
-    imageUrl: mainImage8,
+    imageUrl: concertHqImage,
     dateRange: "2026.10.25",
     venue: "예술의전당 콘서트홀",
     matchRate: 96,
@@ -295,7 +296,7 @@ export const performances: Performance[] = [
     title: "오페라의 유령",
     category: "musical",
     theme: "phantom",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     dateRange: "2026.10.30",
     venue: "블루스퀘어 신한카드홀",
     matchRate: 89,
@@ -321,7 +322,7 @@ export const performances: Performance[] = [
     title: "레베카",
     category: "musical",
     theme: "rebecca",
-    imageUrl: mainImage3,
+    imageUrl: gothicHqImage,
     dateRange: "2026.11.02",
     venue: "예술의전당 오페라극장",
     matchRate: 84,
@@ -346,7 +347,7 @@ export const performances: Performance[] = [
     title: "프랑켄슈타인",
     category: "musical",
     theme: "frankenstein",
-    imageUrl: mainImage2,
+    imageUrl: gothicHqImage,
     dateRange: "2026.11.05",
     venue: "충무아트센터",
     matchRate: 87,
@@ -373,7 +374,7 @@ export const performances: Performance[] = [
     title: "매직 포레스트: 빛의 정원",
     category: "exhibition",
     theme: "magic-forest",
-    imageUrl: mainImage3,
+    imageUrl: forestHqImage,
     dateRange: "2026.11.15",
     venue: "DDP 배움터",
     matchRate: 82,

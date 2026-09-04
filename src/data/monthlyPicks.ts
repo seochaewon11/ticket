@@ -1,15 +1,17 @@
-import mainImage2 from "../assets/performances/main_2.png";
-import mainImage3 from "../assets/performances/main_3.png";
-import mainImage8 from "../assets/performances/main_8.png";
+import operaHqImage from "../assets/performances/opera_hq.jpg";
+import concertHqImage from "../assets/performances/concert_hq.jpg";
+import gothicHqImage from "../assets/performances/gothic_hq.jpg";
+import chicagoHqImage from "../assets/performances/chicago_hq.jpg";
+import forestHqImage from "../assets/performances/forest_hq.jpg";
 import type { MonthlyPick } from "../types";
 
-/** 메인 화면 - 이달의 추천 공연 (하단 그라데이션 박스). 포스터는 main_2/main_3 이미지를 번갈아 사용한다 */
+/** 메인 화면 - 이달의 추천 공연 (하단 그라데이션 박스). performances.ts의 상세 이미지와 동일한 고화질 이미지를 재사용한다 */
 export const monthlyPicks: MonthlyPick[] = [
   {
     id: "pick-seoul-phil-1",
     category: "클래식",
     theme: "orchestra",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     date: "10.25(수)",
     title: "서울시립교향악단 정기공연",
     venue: "예술의전당 콘서트홀",
@@ -18,7 +20,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-bts-daejeon",
     category: "콘서트",
     theme: "bts",
-    imageUrl: mainImage8,
+    imageUrl: concertHqImage,
     date: "10.25(수)",
     title: "BTS 대전콘서트",
     venue: "예술의전당 콘서트홀",
@@ -27,7 +29,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-seoul-phil-2",
     category: "클래식",
     theme: "orchestra",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     date: "10.25(수)",
     title: "서울시립교향악단 정기공연",
     venue: "예술의전당 콘서트홀",
@@ -36,7 +38,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-dracula",
     category: "뮤지컬",
     theme: "dracula",
-    imageUrl: mainImage3,
+    imageUrl: gothicHqImage,
     date: "10.28(토)",
     title: "드라큘라",
     venue: "샤롯데씨어터",
@@ -45,7 +47,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-phantom",
     category: "뮤지컬",
     theme: "phantom",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     date: "10.30(월)",
     title: "오페라의 유령",
     venue: "블루스퀘어 신한카드홀",
@@ -54,7 +56,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-rebecca",
     category: "뮤지컬",
     theme: "rebecca",
-    imageUrl: mainImage3,
+    imageUrl: gothicHqImage,
     date: "11.02(목)",
     title: "레베카",
     venue: "예술의전당 오페라극장",
@@ -63,7 +65,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-frankenstein",
     category: "뮤지컬",
     theme: "frankenstein",
-    imageUrl: mainImage2,
+    imageUrl: gothicHqImage,
     date: "11.05(일)",
     title: "프랑켄슈타인",
     venue: "충무아트센터",
@@ -72,7 +74,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-chicago",
     category: "뮤지컬",
     theme: "chicago",
-    imageUrl: mainImage3,
+    imageUrl: chicagoHqImage,
     date: "11.08(수)",
     title: "시카고",
     venue: "LG아트센터 서울",
@@ -81,7 +83,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-elizabeth",
     category: "뮤지컬",
     theme: "elizabeth",
-    imageUrl: mainImage2,
+    imageUrl: operaHqImage,
     date: "11.12(일)",
     title: "엘리자벳",
     venue: "세종문화회관 대극장",
@@ -90,7 +92,7 @@ export const monthlyPicks: MonthlyPick[] = [
     id: "pick-magic-forest",
     category: "전시",
     theme: "magic-forest",
-    imageUrl: mainImage3,
+    imageUrl: forestHqImage,
     date: "11.15(수)",
     title: "매직 포레스트: 빛의 정원",
     venue: "DDP 배움터",
